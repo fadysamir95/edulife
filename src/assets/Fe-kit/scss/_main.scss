@@ -1,0 +1,35 @@
+/* vendors files
+================================ */
+@import '../vendors/bootstrap-5.0.2/scss/bootstrap.scss';
+
+/* init files
+================================ */
+@import "./utils/colors";
+@import "./utils/functions";
+
+/* reset file
+================================ */
+@import "./base/base";
+
+/* base files
+================================ */
+@import "./base/base";
+
+/* layout files
+================================ */
+@import "./layout/header";
+@import "./layout/footer";
+@import "./layout/inner-banner";
+
+/* components files
+================================ */
+@import "./components/buttons";
+@import "./components/cards";
+@import "./components/join-now";
+
+/* pages files
+================================ */
+@import "./pages/home";
+@import "./pages/diplomas";
+@import "./pages/masters";
+@import "./pages/tot";
