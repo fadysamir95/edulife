@@ -1,0 +1,52 @@
+footer {
+    background-color: $off-white;
+    .partners {
+        background-color: $light-gray;
+        .partner-logo {
+            .partner {
+                @media(max-width: 768px) {
+                    justify-content: center;
+                    margin-bottom: 2rem;
+                }
+                img {
+                    max-width: 50%;
+                    @media(max-width: 768px) {
+                        max-width: 40%;
+                    }
+                }
+            }
+            &:last-child {
+                .partner {
+                    @media(max-width: 768px) {
+                        margin-bottom: 0;
+                    }
+                }
+            }
+        }
+        
+    }
+    p {
+        font-size: 0.8rem;
+        color: $black;
+        font-weight: 400;
+        max-width: 90%;
+    }
+    .nav-item {
+        a {
+            font-size: 0.8rem;
+            color: $black !important;
+            font-weight: 400;
+            &:hover, &:active, &:focus {
+                color: $secondary !important;
+            }
+        }
+        span {
+            font-size: 0.8rem;
+            color: $black !important;
+            font-weight: 400;
+        }
+    }
+    .footer-logo {
+        max-width: 18%;
+    }
+}
