@@ -5,5 +5,4 @@ import { Component } from '@angular/core';
   templateUrl: './home-apply.component.html'
 })
 export class HomeApplyComponent {
-
 }

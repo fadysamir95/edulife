@@ -1,3 +1,25 @@
 @import 'ngx-owl-carousel-o/lib/styles/scss/owl.carousel';
 @import 'ngx-owl-carousel-o/lib/styles/scss/owl.theme.default';
-@import './assets/Fe-kit/scss/main'
+@import './assets/Fe-kit/scss/main';
+@import 'ngx-toastr/toastr';
+
+.toast-success {
+    background-color: #4caf50 !important; /* Green */
+    color: #fff !important;
+  }
+  
+  .toast-error {
+    background-color: #f44336 !important; /* Red */
+    color: #fff !important;
+  }
+  
+  .toast-info {
+    background-color: #2196f3 !important; /* Blue */
+    color: #fff !important;
+  }
+  
+  .toast-warning {
+    background-color: #ff9800 !important; /* Orange */
+    color: #fff !important;
+  }
+  
