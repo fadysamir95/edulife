@@ -1,0 +1,56 @@
+<app-header></app-header>
+<app-page-inner-banner [sharedMessage]="parentMessage"></app-page-inner-banner>
+
+<div class="container my-5 pt-4">
+ <div class="row justify-content-center">
+  <div class="col-12 col-md-8">
+   <h4 class="text-uppercase mb-4 side-title"><span class="color-secondary">أصبح عضوآ</span> لتحقق أهدافك</h4>
+   <form>
+    <div class="form-group">
+     <input type="text" class="form-control mb-3" placeholder="الاسم">
+    </div>
+    <div class="form-group">
+     <input type="text" class="form-control mb-3" placeholder="رقم الجوال">
+    </div>
+    <div class="form-group">
+     <input type="text" class="form-control mb-3" placeholder="البريد الإلكتروني">
+    </div>
+    <div class="d-flex justify-content-between">
+     <div class="form-group w-48">
+      <input type="text" class="form-control mb-3" placeholder="المحافظة">
+     </div>
+     <div class="form-group w-48">
+      <input type="text" class="form-control mb-3" placeholder="الدولة">
+     </div>
+    </div>
+    <div class="form-group">
+     <input type="text" class="form-control mb-3" placeholder="كلمة المرور">
+    </div>
+    <div class="text-center">
+     <button type="submit" class="btn main-btn">تسجيل</button>
+    </div>
+    <p class="text-center my-3">او سجل الدخول اذا كنت تمتاك حساب بالفعل</p>
+    <div class="text-center">
+     <button class="btn dark-blue-btn">ارسال</button>
+    </div>
+   </form>
+  </div>
+ </div>
+
+ <div class="login-area my-5">
+  <div class="login-container">
+   <input type="email" placeholder="الايميل" />
+   <input type="password" placeholder="كلمة السر" />
+   <div class="d-flex justify-content-between mb-4">
+    <div class="d-flex align-items-center">
+     <input type="checkbox" id="remember-me" />
+     <label for="remember-me">تذكرنى</label>
+    </div>
+    <a href="javascript:void(0)">هل نسيت كلمة السر؟</a>
+   </div>
+   <button class="btn dark-blue-btn">تسجيل الدخول</button>
+  </div>
+ </div>
+</div>
+
+<app-footer></app-footer>

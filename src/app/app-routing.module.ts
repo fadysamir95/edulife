@@ -4,6 +4,9 @@ import { HomeComponent } from './modules/home/home.component';
 import { DiplomasComponent } from './modules/diplomas/diplomas.component';
 import { MastersComponent } from './modules/masters/masters.component';
 import { TotComponent } from './modules/tot/tot.component';
+import { AuthComponent } from './modules/auth/auth.component';
+import { ArticlesComponent } from './modules/articles/articles.component';
+import { AboutComponent } from './modules/about/about.component';
 
 const routes: Routes = [
   {
@@ -26,6 +29,18 @@ const routes: Routes = [
   {
     path:'tot',
     component: TotComponent
+  },
+  {
+    path:'auth',
+    component: AuthComponent
+  },
+  {
+    path:'articles',
+    component: ArticlesComponent
+  },
+  {
+    path:'about',
+    component: AboutComponent
   },
 ];
 

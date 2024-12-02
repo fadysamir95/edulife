@@ -236,7 +236,7 @@
             }
         }
         .buzz {
-            transform: translate(-4.5rem, 3.4rem);
+            transform: translate(-7.5rem, -1rem);
             @media(max-width: 768px) {
                 display: none;
             }
@@ -380,6 +380,26 @@
         .input-area {
             margin-bottom: 1.3rem;
         }
+        .form-control {
+            border-radius: 7px;
+            border-color: #c4c4c4;
+            background-color: #c4c4c4;
+            color: #fff;
+            padding: 0.6rem;
+
+            &:hover, &:active, &:focus {
+                background-color: #c4c4c4;
+                border-color: #c4c4c4;
+            }
+           
+            &::placeholder {
+             color: #fff;
+            }
+           
+            &:focus {
+             box-shadow: none;
+            }
+           }
     }
     .member-img-area {
         display: flex;

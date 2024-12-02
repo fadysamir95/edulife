@@ -155,8 +155,27 @@ ul {
         font-size: 1rem;
     }
 }
+.md-default-link {
+    color: $secondary;
+    font-size: 1.2rem;
+    font-weight: 500;
+    cursor: pointer;
+    &:hover, &:active, &:focus {
+        color: $primary;
+    }
+    @media(max-width: 768px) {
+        width: 100%;
+        text-align: center;
+        display: block;
+        margin-top: 1.5rem;
+        font-size: 1rem;
+    }
+}
 .form-control {
     &:focus {
         border-color: $secondary;
     }
+}
+.secondary-color {
+    color: $secondary;
 }

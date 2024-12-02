@@ -1,17 +1,18 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { HomeComponent } from './home.component';
-import { CarouselModule } from 'ngx-owl-carousel-o';
+import { ArticlesComponent } from './articles.component';
 import { SharedModule } from '../shared/shared.module';
 
 @NgModule({
   declarations: [
-    HomeComponent,
+    ArticlesComponent
   ],
   imports: [
     CommonModule,
-    CarouselModule,
     SharedModule
   ],
+  exports: [
+    ArticlesComponent
+  ]
 })
-export class HomeModule { }
+export class ArticlesModule { }

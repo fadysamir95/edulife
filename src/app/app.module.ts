@@ -12,7 +12,9 @@ import { AppRoutingModule } from './app-routing.module';
 import { RouterModule } from '@angular/router';
 import { ToastrModule } from 'ngx-toastr';
 import { ErrorInterceptor } from './shared/services/error.interceptor';
-
+import { AuthModule } from './modules/auth/auth.module';
+import { ArticlesModule } from './modules/articles/articles.module';
+import { AboutModule } from './modules/about/about.module';
 
 @NgModule({
   declarations: [AppComponent],
@@ -28,6 +30,9 @@ import { ErrorInterceptor } from './shared/services/error.interceptor';
     BrowserAnimationsModule,
     SharedModule,
     HttpClientModule,
+    AuthModule,
+    ArticlesModule,
+    AboutModule,
     ToastrModule.forRoot({
       timeOut: 3000, // Duration of the toast (in milliseconds)
       positionClass: 'toast-top-right', // Position of the toast
