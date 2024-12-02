@@ -24,9 +24,9 @@ import { AboutModule } from './modules/about/about.module';
     BrowserAnimationsModule,
     HttpClientModule,
     ToastrModule.forRoot({
-      timeOut: 3000, // Duration of the toast (in milliseconds)
-      positionClass: 'toast-top-right', // Position of the toast
-      preventDuplicates: true, // Prevent duplicate toasts
+      timeOut: 3000,
+      positionClass: 'toast-top-right',
+      preventDuplicates: true, 
     }),
   ],
   providers: [
