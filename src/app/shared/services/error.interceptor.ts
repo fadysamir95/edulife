@@ -18,10 +18,10 @@ export class ErrorInterceptor implements HttpInterceptor {
     // Clone the request to add custom headers
     const clonedRequest = req.clone({
       setHeaders: {
-        'Content-Type': 'application/json', // Ensure JSON requests
-        'Cache-Control': 'no-cache, no-store, must-revalidate', // No caching
-        Pragma: 'no-cache', // HTTP/1.0 compatibility
-        Expires: '0', // Prevent caching
+        'Content-Type': 'application/json',
+        'Cache-Control': 'no-cache, no-store, must-revalidate',
+        Pragma: 'no-cache',
+        Expires: '0',
       },
     });
 
