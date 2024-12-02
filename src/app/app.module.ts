@@ -22,17 +22,7 @@ import { AboutModule } from './modules/about/about.module';
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-    HomeModule,
-    DiplomasModule,
-    MastersModule,
-    TotModule,
-    RouterModule,
-    BrowserAnimationsModule,
-    SharedModule,
     HttpClientModule,
-    AuthModule,
-    ArticlesModule,
-    AboutModule,
     ToastrModule.forRoot({
       timeOut: 3000, // Duration of the toast (in milliseconds)
       positionClass: 'toast-top-right', // Position of the toast
