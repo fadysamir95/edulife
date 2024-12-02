@@ -412,17 +412,29 @@
     }
     .word-bg {
         position: absolute;
-        left: -1.6rem;
-        bottom: -2rem;
+        left: 9rem;
+        bottom: -8rem;
+        opacity: 0.5;
         @media(min-width: 1700px) {
-            left: -1rem;
-            bottom: -3rem;
+            left: 10rem;
+            bottom: -8rem;
         }
         @media(max-width: 768px) {
             display: none;
         }
         img {
             max-width: 90%;
+        }
+        h2 {
+            position: relative;
+            font-size: 7rem;
+            font-weight: 600;
+            color: #4D83B6;
+            line-height: 4rem;
+            z-index: 1;
+            @media(min-width: 1700px) {
+                font-size: 10rem;
+            }
         }
     }
 }
