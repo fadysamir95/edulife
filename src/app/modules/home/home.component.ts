@@ -41,6 +41,7 @@ export class HomeComponent implements OnInit {
     },
     nav: false
   }
+  sloganImage: string | null = null;
 
   ngOnInit(): void {
     this.getSettingsData()
@@ -50,6 +51,9 @@ export class HomeComponent implements OnInit {
     this.settingsService.getSettings().subscribe((response: any) => {
       this.settingsService.setDataSettings(response); // Store settings in the service
       this.settingsInfo = response;
+      const adjustedBaseUrl = this.baseUrl.replace('/api', '');
+      this.aboutSloganImage = adjustedBaseUrl + this.settingsInfo.about_image
+      this.sloganImage = adjustedBaseUrl + this.settingsInfo.slogan_image
       console.log(response);
     });
   }

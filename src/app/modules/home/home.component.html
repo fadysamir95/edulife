@@ -14,8 +14,9 @@
    </div>
   </div>
   <div class="img-area">
-   <img src="../../../../../assets/images/highlight-img.png" alt="">
-  </div>
+    <img [src]="sloganImage || '../../../../../assets/images/apply-img.png'" 
+    alt="Slogan Image" 
+    class="main-img img-fluid">  </div>
  </div>
 </section>
 
@@ -101,7 +102,7 @@
    <div class="col-md-9">
     <div class="content">
      <h4 class="text-uppercase mb-3 mt-lg-3">الألاف من الطلاب <span class="color-secondary">سعداء</span></h4>
-     <p class="text-default">{{settingsInfo.about_us_ar}}
+     <p class="text-default">{{settingsInfo?.about_us_ar}}
      </p>
      <!-- <p class="text-default mt-lg-4 mb-5">لكن لا بد أن أوضح لك أن كل هذه الأفكار المغلوطة حول استنكار النشوة وتمجيد الألم
       نشأت بالفعل، وسأعرض لك التفاصيل لتكتشف حقيقة وأساس تلك السعادة البشرية، فلا أحد يرفض أو يكره أو يتجنب الشعور
