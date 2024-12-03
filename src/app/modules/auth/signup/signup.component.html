@@ -1,0 +1,58 @@
+<div class="popup-backdrop" (click)="closePopup()">
+  <div class="popup-content" (click)="$event.stopPropagation()">
+    <button class="close-btn" (click)="closePopup()">×</button>
+
+    <h4 class="text-uppercase mb-4 side-title">انشئ حساب</h4>
+    <form [formGroup]="signupForm" (ngSubmit)="onSubmit()">
+      <div class="form-group">
+        <input
+          type="text"
+          class="form-control mb-3"
+          formControlName="name"
+          placeholder="الاسم"
+        />
+      </div>
+      <div class="form-group">
+        <input
+          type="email"
+          class="form-control mb-3"
+          formControlName="email"
+          placeholder="البريد الإلكتروني"
+        />
+      </div>
+      <div class="form-group">
+        <input
+          type="text"
+          class="form-control mb-3"
+          formControlName="phone"
+          placeholder="رقم الجوال"
+        />
+      </div>
+      <div class="form-group">
+        <input
+          type="password"
+          class="form-control mb-3"
+          formControlName="password"
+          placeholder="كلمة المرور"
+        />
+      </div>
+      <div class="form-group">
+        <input
+          type="text"
+          class="form-control mb-3"
+          formControlName="country_id"
+          placeholder="الدولة"
+        />
+      </div>
+      <div class="form-group">
+        <input
+          type="text"
+          class="form-control mb-3"
+          formControlName="city_id"
+          placeholder="المحافظة"
+        />
+      </div>
+      <button type="submit" class="btn main-btn" [disabled]="signupForm.invalid">تسجيل</button>
+    </form>
+  </div>
+</div>
