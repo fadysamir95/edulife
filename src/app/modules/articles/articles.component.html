@@ -1,10 +1,15 @@
 <app-header></app-header>
-<app-page-inner-banner [sharedMessage]="parentMessage"></app-page-inner-banner>
-
+<section class="inner-banner">
+  <div class="container d-flex justify-content-center flex-wrap">
+      <h1 class="mb-4 w-100 text-center">المقالات</h1>
+      <div class="pb-4">
+      </div>
+  </div>
+</section>
 <div class="articles">
  <div class="container">
   <div class="row">
-   <div class="col-md-12">
+   <!-- <div class="col-md-12">
     <div class="top-spacing">
      <h4 class="text-uppercase mb-3 side-title">معرض الصور</h4>
      <p class="text-default mb-3 mb-lg-5 w-75">لكن لا بد أن أوضح لك أن كل هذه الأفكار المغلوطة حول استنكار النشوة وتمجيد
@@ -12,45 +17,16 @@
       بالسعادة، ولكن بفضل هؤلاء الأشخاص الذين لا يدركون بأن السعادة لا بد أن نستشعرها بصورة أكثر عقلانية .</p>
     </div>
    </div>
-  </div>
+  </div> -->
   <div class="grid">
-   <div class="image-container">
-    <img src="../../../../../assets/images/member-img.png" alt="" class="img-fluid member-img">
-    <div class="caption">THOUSANDS <span class="color-secondary">HAPPY</span></div>
-   </div>
-   <div class="image-container">
-    <img src="../../../../../assets/images/member-img.png" alt="" class="img-fluid member-img">
-    <div class="caption">THOUSANDS <span class="color-secondary">HAPPY</span></div>
-   </div>
-   <div class="image-container">
-    <img src="../../../../../assets/images/member-img.png" alt="" class="img-fluid member-img">
-    <div class="caption">THOUSANDS <span class="color-secondary">HAPPY</span></div>
-   </div>
-   <div class="image-container">
-    <img src="../../../../../assets/images/member-img.png" alt="" class="img-fluid member-img">
-    <div class="caption">THOUSANDS <span class="color-secondary">HAPPY</span></div>
-   </div>
-   <div class="image-container">
-    <img src="../../../../../assets/images/member-img.png" alt="" class="img-fluid member-img">
-    <div class="caption">THOUSANDS <span class="color-secondary">HAPPY</span></div>
-   </div>
-   <div class="image-container">
-    <img src="../../../../../assets/images/member-img.png" alt="" class="img-fluid member-img">
-    <div class="caption">THOUSANDS <span class="color-secondary">HAPPY</span></div>
-   </div>
-   <div class="image-container">
-    <img src="../../../../../assets/images/member-img.png" alt="" class="img-fluid member-img">
-    <div class="caption">THOUSANDS <span class="color-secondary">HAPPY</span></div>
-   </div>
-   <div class="image-container">
-    <img src="../../../../../assets/images/member-img.png" alt="" class="img-fluid member-img">
-    <div class="caption">THOUSANDS <span class="color-secondary">HAPPY</span></div>
-   </div>
-   <div class="image-container">
-    <img src="../../../../../assets/images/member-img.png" alt="" class="img-fluid member-img">
-    <div class="caption">THOUSANDS <span class="color-secondary">HAPPY</span></div>
-   </div>
+    <div *ngFor="let article of articles" class="image-container">
+      <img [src]="article.file" [alt]="article.name" class="img-fluid member-img">
+      <div class="caption">
+        <div [innerHTML]="article.short_description"></div>
+      </div>
+    </div>
   </div>
+  
  </div>
 </div>
 

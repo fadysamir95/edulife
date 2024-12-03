@@ -1,5 +1,13 @@
 <app-header></app-header>
-<app-page-inner-banner [sharedMessage]="parentMessage"></app-page-inner-banner>
+<section class="inner-banner">
+  <div class="container d-flex justify-content-center flex-wrap">
+      <h1 class="mb-4 w-100 text-center">الدبلومات التدريبية</h1>
+      <div class="pb-4">
+          <a href="#" class="btn main-btn ms-4">انضم الأن !</a>
+          <a href="#" class="text-decoration-underline link ms-4">تعلم المزيد</a>
+      </div>
+  </div>
+</section>
 <div class="container">
   <div class="diplomas carousel-area py-5">
     <owl-carousel-o [options]="customOptions">
