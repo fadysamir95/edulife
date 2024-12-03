@@ -39,6 +39,13 @@
                     background-color: $secondary;
                     height: 3rem;
                     width: 3rem;
+                    padding: 0.5rem;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    img {
+                        width: 1.3rem;
+                    }
                 }
                 .text {
                     h3, p {
@@ -102,6 +109,9 @@
                     color: $white;
                     box-shadow: none;
                     outline: 0;
+                    img {
+                        content: url('../../../../assets/images/download-white.png');
+                    }
                     &:before {
                         width: 100%;
                     }
