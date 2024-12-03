@@ -7,25 +7,22 @@ import {
   HttpErrorResponse,
 } from '@angular/common/http';
 import { Observable, throwError } from 'rxjs';
-import { catchError } from 'rxjs/operators';
+import { catchError, finalize } from 'rxjs/operators';
 import { NotificationService } from '../services/notification.service';
+import { SpinnerService } from '../services/spinner.service';
 
 @Injectable()
 export class ErrorInterceptor implements HttpInterceptor {
-  constructor(private notificationService: NotificationService) {}
+  constructor(
+    private notificationService: NotificationService,
+    private spinnerService: SpinnerService
+  ) {}
 
   intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
-    // Clone the request to add custom headers
-    const clonedRequest = req.clone({
-      setHeaders: {
-        'Content-Type': 'application/json',
-        'Cache-Control': 'no-cache, no-store, must-revalidate',
-        Pragma: 'no-cache',
-        Expires: '0',
-      },
-    });
+    // Show the spinner at the start of the request
+    this.spinnerService.show();
 
-    return next.handle(clonedRequest).pipe(
+    return next.handle(req).pipe(
       catchError((error: HttpErrorResponse) => {
         console.error('HTTP Error:', error); // Log for debugging
 
@@ -39,6 +36,10 @@ export class ErrorInterceptor implements HttpInterceptor {
         }
 
         return throwError(() => new Error(error.message || 'An unknown error occurred.'));
+      }),
+      finalize(() => {
+        // Hide the spinner after the request completes (success or error)
+        this.spinnerService.hide();
       })
     );
   }

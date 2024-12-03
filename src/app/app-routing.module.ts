@@ -15,17 +15,10 @@ const routes: Routes = [
     path: 'diplomas',
     loadChildren: () => import('./modules/diplomas/diplomas.module').then(m => m.DiplomasModule),
   },
-  {
-    path: 'masters',
-    loadChildren: () => import('./modules/masters/masters.module').then(m => m.MastersModule),
-  },
+
   {
     path: 'tot',
     loadChildren: () => import('./modules/tot/tot.module').then(m => m.TotModule),
-  },
-  {
-    path: 'auth',
-    loadChildren: () => import('./modules/auth/auth.module').then(m => m.AuthModule),
   },
   {
     path: 'articles',
@@ -38,7 +31,10 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule],
+  imports: [
+    RouterModule.forRoot(routes, {
+      scrollPositionRestoration: 'enabled',
+    }),
+  ],  exports: [RouterModule],
 })
 export class AppRoutingModule {}

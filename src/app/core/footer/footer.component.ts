@@ -1,11 +1,14 @@
-import { Component } from '@angular/core';
+import { Component, inject, OnInit } from '@angular/core';
 import { OwlOptions } from 'ngx-owl-carousel-o';
+import { SettingsService } from '../../shared/services/riyada-setting.service';
 
 @Component({
   selector: 'app-footer',
   templateUrl: './footer.component.html'
 })
-export class FooterComponent {
+export class FooterComponent implements OnInit {
+  settingsService = inject(SettingsService);
+
   customOptions: OwlOptions = {
     loop: false,
     mouseDrag: true,
@@ -31,5 +34,13 @@ export class FooterComponent {
       }
     },
     nav: false
+  }
+  settingsInfo: any;
+
+
+  ngOnInit(): void {
+    this.settingsService.settings$.subscribe((data) => {
+      this.settingsInfo = data; // Access the shared settings data
+    });
   }
 }

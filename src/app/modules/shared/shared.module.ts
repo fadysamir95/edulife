@@ -6,6 +6,8 @@ import { PageInnerBannerComponent } from '../../core/page-inner-banner/page-inne
 import { JoinNowComponent } from '../../shared/components/join-now/join-now.component';
 import { ScrollDirective } from '../../shared/directives/scroll.directive';
 import { CarouselModule } from 'ngx-owl-carousel-o';
+import { LoginComponent } from '../auth/login/login.component';
+import { SignupComponent } from '../auth/signup/signup.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +19,9 @@ import { CarouselModule } from 'ngx-owl-carousel-o';
   ],
   imports: [
     CommonModule,
-    CarouselModule
+    CarouselModule,
+    LoginComponent,
+    SignupComponent,
   ],
   exports: [
     HeaderComponent,

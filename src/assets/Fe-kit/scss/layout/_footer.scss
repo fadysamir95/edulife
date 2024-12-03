@@ -47,6 +47,32 @@ footer {
         }
     }
     .footer-logo {
-        max-width: 18%;
+        max-width: 24%;
     }
+
+    .social-icons {
+        display: flex;
+        justify-content: flex-end;
+        gap: 10px;
+      }
+      
+      .social-icons a {
+        background: #ffffff none repeat scroll 100% 0;
+        color: #2d3e50;
+        display: inline-block;
+        font-size: 20px;
+        height: 31px;
+        line-height: 30px;
+        margin-left: 11px;
+        text-align: center;
+        -webkit-transition: all 0.3s ease 0s;
+        transition: all 0.3s ease 0s;
+        width: 31px;
+      }
+      
+      .social-icons a:hover {
+        color: #007bff; /* Optional hover effect */
+        background-color: #f0f0f0; /* Optional hover background */
+      }
+      
 }

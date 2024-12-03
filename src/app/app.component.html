@@ -1,1 +1,11 @@
+
+<app-spinner></app-spinner>
 <router-outlet></router-outlet>
+
+<!-- Reactive binding for WhatsApp Float -->
+<ng-container *ngIf="settings$ | async as settingsInfo">
+  <app-whatsapp-float 
+    [phone]="settingsInfo.whatsapp_phone_api" 
+    [message]="settingsInfo.whatsapp_message_api_ar">
+  </app-whatsapp-float>
+</ng-container>
