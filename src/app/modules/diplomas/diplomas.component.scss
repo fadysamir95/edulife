@@ -1,0 +1,30 @@
+.carousel-area {
+ a {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  flex-direction: column;
+  img {
+   width: auto;
+   margin: auto;
+  }
+  p {
+   color: #193148;
+   font-size: 1.5rem;
+   font-weight: bold;
+   max-width: max-content;
+   margin: auto;
+   &:first-child {
+    background-color: #c4c4c4;
+    max-width: max-content;
+    padding: 0.3rem 0.5rem;
+    border-radius: 5px;
+   }
+  }
+  &.active {
+   p {
+    border-bottom: 4px solid #E4B039;
+   }
+  }
+ }
+}
