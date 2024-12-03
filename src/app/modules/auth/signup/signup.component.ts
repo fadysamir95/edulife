@@ -22,7 +22,7 @@ export class SignupComponent {
     name: ['', [Validators.required]],
     email: ['', [Validators.required, Validators.email]],
     phone: ['', [Validators.required, Validators.minLength(10)]],
-    password: ['', [Validators.required, Validators.minLength(6)]],
+    password: ['', [Validators.required, Validators.minLength(8)]],
     country_id: [0, [Validators.required]],
     city_id: [0, [Validators.required]],
   });
@@ -37,8 +37,8 @@ export class SignupComponent {
         next: (response) => {
           console.log('Registration successful', response);
           this.storageService.setItem('access_token', response?.data.access_token);
-          const userName = response?.data.name || 'User';
-          this.userRegistered.emit(userName);
+          this.storageService.setItem('user_name', response?.data.name);
+          this.userRegistered.emit(response?.data.name);
           this.closePopup(); 
         },
         error: (error) => {
@@ -47,4 +47,5 @@ export class SignupComponent {
       });
     }
   }
+  
 }

@@ -1,5 +1,113 @@
 <app-header></app-header>
-<app-tot-inner-banner></app-tot-inner-banner>
-<app-tot-about></app-tot-about>
-<!-- <app-tot-about-publisher></app-tot-about-publisher> -->
+<section class="inner-banner join tot">
+    <div class="container d-flex justify-content-center flex-wrap">
+        <div class="row">
+            <div class="col-md-3">
+                <div class="position-relative images-area">
+                    <img [src]="diplomaDetails?.file" alt="{{ diplomaDetails?.name }}" class="main-img img-fluid">
+                    <div><img [src]="diplomaDetails?.avatar" alt="{{ diplomaDetails?.name }}" class="about-img img-fluid"></div>
+                    <!-- <div class="vertical-text"><p class="text-uppercase">الألاف من الطلاب <span class="color-secondary">سعداء</span></p></div> -->
+                    <div><img src="../../../../assets/images/arrow.png" class="arrow" /></div>
+                </div>
+            </div>
+            <div class="col-md-9">
+                <div class="content">
+                    <h1 class="mb-4 w-100">{{ diplomaDetails?.name }}</h1>
+                    <div class="text-default mb-5" [innerHTML]="diplomaDetails?.short_description"></div>
+                    <div *ngIf="!isUserLoggedIn">
+                        <a (click)="showSignupPopup()" class="btn main-btn">سجل الأن !</a>
+                      </div>
+                      
+                      <!-- Signup Popup -->
+                      <app-signup
+                        *ngIf="isSignupPopupVisible"
+                        (close)="closePopups()"
+                        (userRegistered)="handleUserRegistered($event)"
+                      ></app-signup>
+                      
+                </div>
+            </div>
+        </div>
+    </div>
+    <section class="top-spacing tot-about mb-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <h2 class="faint-title">عن كورساتنا</h2>
+                    <p class="title-before text-capitalize">عن كورساتنا</p>
+                </div>
+                <div class="col-md-7">
+                    <h4 class="text-capitalize mb-3 side-title mt-3">لكن لا بد أن أوضح لك أن كل هذه الأفكار حول التعلم.</h4>
+                    <div class="details mt-3 mt-lg-5">
+                        <p class="subtitle text-capitalize">التفاصيل:</p>
+                        <div class="text-default mt-3" [innerHTML]="diplomaDetails?.long_description"></div>
+
+                        <!-- <ul class="mt-3 mb-4">
+                            <li>تطبيق استراتيجيات تجربة المستخدم على محتوى الموقع وتصميمه</li>
+                            <li>فهم هندسة المعلومات لتحسين المحتوى على موقع الويب الخاص بك</li>
+                            <li>تعرف على ما يخصص شكل موقع الويب الخاص بك</li>
+                        </ul> -->
+                        <!-- <a>اقرأ المزيد...</a> -->
+                    </div>
+                </div>
+                <div class="col-md-5 display flex-wrap">
+                    <div class="top">
+                        <div class="item">
+                            <div class="icon-wrapper">
+                                <img src="../../../../../assets/images/document.png" class="img-fluid" />
+                            </div>
+                            <div class="text">
+                                <h3>شهادة أصيلة</h3>
+                                <p>احصل على شهادة عند الانتهاء</p>
+                            </div>
+                        </div>
+                        <div class="item">
+                            <div class="icon-wrapper">
+                                <img src="../../../../../assets/images/screen.png" class="img-fluid" />
+                            </div>
+                            <div class="text">
+                                <h3>دروس على الأنترنت</h3>
+                                <p>ابدأ على الفور وتعلم بنفسك</p>
+                            </div>
+                        </div>
+                        <div class="item">
+                            <div class="icon-wrapper">
+                                <img src="../../../../../assets/images/infinity.png" class="img-fluid" />
+                            </div>
+                            <div class="text">
+                                <h3>إمكانية الوصول مدى الحياة</h3>
+                                <p>تحديد مواعيد نهائية مرنة والحفاظ عليها</p>
+                            </div>
+                        </div>
+                        <div class="item">
+                            <div class="icon-wrapper">
+                                <img src="../../../../../assets/images/levels.png" class="img-fluid" />
+                            </div>
+                            <div class="text">
+                                <h3>مستوى المبتدئين</h3>
+                                <p>لا يشترط خبرة سابقة</p>
+                            </div>
+                        </div>
+                        <div class="item">
+                            <div class="icon-wrapper">
+                                <img src="../../../../../assets/images/cc.png" class="img-fluid" />
+                            </div>
+                            <div class="text">
+                                <h3>دعم الترجمات</h3>
+                                <p>الإنجليزية والهندية والماراثية</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="bottom">
+                        <div class="download">
+                            <a [href]="diplomaDetails?.material_link" target="_blank">
+                                <img src="../../../../../assets/images/download.png" class="ms-2" />
+                                قم بتنزيل المنهج للحصول على التفاصيل الكاملة
+                              </a>                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 <app-footer></app-footer>

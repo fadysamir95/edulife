@@ -15,7 +15,9 @@ export class HeaderComponent implements OnInit {
   constructor(private storageService: StorageService, public route: Router) {}
 
   ngOnInit() {
-    this.userName = this.storageService.getItem('user_name');
+    this.storageService.userName$.subscribe((name) => {
+      this.userName = name;
+    });
   }
 
   showLoginPopup() {

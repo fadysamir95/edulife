@@ -2,6 +2,7 @@ import { Component, inject, OnInit } from '@angular/core';
 import { OwlOptions } from 'ngx-owl-carousel-o';
 import { CoursesService } from '../../shared/services/courses.service';
 import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-diplomas',
@@ -11,6 +12,8 @@ import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
 export class DiplomasComponent implements OnInit {
   coursesService = inject(CoursesService);
   sanitizer = inject(DomSanitizer);
+
+  router = inject(Router)
 
   courses: any[] = [];
   selectedCourseDetails: any = null;
@@ -82,5 +85,9 @@ export class DiplomasComponent implements OnInit {
   // Handle course selection
   onCourseSelect(course: any): void {
     this.fetchCourseDetails(course.id); // Fetch details of the clicked course
+  }
+
+  navigateToDetails(slug: string): void {
+    this.router.navigate(['/tot', slug]); // Navigate to the 'tot' route with the slug
   }
 }
