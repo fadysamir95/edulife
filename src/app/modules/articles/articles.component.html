@@ -20,12 +20,15 @@
   </div> -->
   <div class="grid">
     <div *ngFor="let article of articles" class="image-container">
-      <img [src]="article.file" [alt]="article.name" class="img-fluid member-img">
-      <div class="caption">
-        <div [innerHTML]="article.short_description"></div>
-      </div>
+      <a [routerLink]="['/articles', article.slug]">
+        <img [src]="article.file" [alt]="article.name" class="img-fluid member-img">
+        <div class="caption">
+          <div [innerHTML]="article.short_description"></div>
+        </div>
+      </a>
     </div>
   </div>
+  
   
  </div>
 </div>

@@ -8,7 +8,9 @@ import { ArticlesService } from '../../shared/services/articles.services';
 })
 export class ArticlesComponent implements OnInit {
   parentMessage: string = 'مقالات';
-  articles: any[] = []; // Store fetched articles
+  articles: any[] = [];
+  article: any = null;
+
 
   constructor(private articlesService: ArticlesService) {}
 
@@ -24,6 +26,18 @@ export class ArticlesComponent implements OnInit {
       },
       error: (error) => {
         console.error('Error fetching articles:', error);
+      },
+    });
+  }
+
+  fetchArticleDetails(slug: string): void {
+    this.articlesService.getArticleBySlug(slug, 'ar').subscribe({
+      next: (response) => {
+        this.article = response.data;
+        console.log('Article details:', this.article);
+      },
+      error: (error) => {
+        console.error('Error fetching article details:', error);
       },
     });
   }
