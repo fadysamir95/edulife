@@ -1,6 +1,6 @@
 <nav class="navbar navbar-expand-lg navbar-light" appScroll>
   <div class="container">
-    <a class="navbar-brand" href="#"><img src="../../../assets/images/alriyada-institute-logo.png"
+    <a class="navbar-brand" routerLink="/home"><img src="../../../assets/images/alriyada-institute-logo.png"
         class="header-logo" /></a>
     <button class="navbar-toggler" id="toggler" type="button" data-bs-toggle="collapse"
       data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
@@ -10,20 +10,23 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
         <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="#">الصفحة الرئيسية</a>
+          <a class="nav-link active" aria-current="page" routerLink="/home">الصفحة الرئيسية</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">عن الشركة</a>
+          <a class="nav-link" routerLink="/about">عن الشركة</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">كورساتنا</a>
+          <a class="nav-link" routerLink="/diplomas">كورساتنا</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">مقالات</a>
+          <a class="nav-link" routerLink="/articles">مقالات</a>
         </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">تواصل معنا</a>
+        <li class="nav-item" style="cursor: pointer;">
+          <a class="nav-link" (click)="scrollToFooter()">تواصل معنا</a>
         </li>
+        
+        
+        
       </ul>
 
       

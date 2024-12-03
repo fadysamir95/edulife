@@ -41,6 +41,17 @@ export class SettingsService {
     );
   }
 
+  getBestSellers(lang: string = 'ar'): Observable<{ data: any[] }> {
+    const url = `${this.baseUrl}get_diplomas_best_seller?lang=${lang}`;
+    return this.http.get<{ data: any[] }>(url).pipe(
+      catchError((error) => {
+        console.error('Error fetching best sellers:', error);
+        throw error;
+      })
+    );
+  }
+  
+  
 
   setDataSettings(data: any): void {
     this.settingsSubject.next(data); // Update the settings

@@ -42,14 +42,16 @@ export class HomeComponent implements OnInit {
     nav: false
   }
   sloganImage: string | null = null;
+  bestSellers: any[] = [];
 
   ngOnInit(): void {
     this.getSettingsData()
+    this.getBestSellers()
   }
 
   getSettingsData() {
     this.settingsService.getSettings().subscribe((response: any) => {
-      this.settingsService.setDataSettings(response); // Store settings in the service
+      this.settingsService.setDataSettings(response); 
       this.settingsInfo = response;
       const adjustedBaseUrl = this.baseUrl.replace('/api', '');
       this.aboutSloganImage = adjustedBaseUrl + this.settingsInfo.about_image
@@ -57,5 +59,21 @@ export class HomeComponent implements OnInit {
       console.log(response);
     });
   }
+
+  getBestSellers(): void {
+    this.settingsService.getBestSellers('ar').subscribe({
+      next: (response) => {
+        console.log('Full API response:', response);
+        this.bestSellers = response.data;
+        console.log('Best Sellers data:', this.bestSellers);
+      },
+      error: (error) => {
+        console.error('Error fetching best sellers:', error);
+      },
+    });
+  }
+  
+  
+  
 
 }

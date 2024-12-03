@@ -121,122 +121,11 @@
  <div class="container">
   <h4 class="text-uppercase mb-4 side-title">الأفضل<span class="color-secondary"> مبيعا</span></h4>
   <div class="row">
-   <div class="col-md-4 mb-5">
+   <div class="col-md-4 mb-5" *ngFor="let seller of bestSellers">
     <div class="item">
      <div class="image">
-      <img src="../../../../../assets/images/apply-img.png" alt="" class="img-fluid">
-     </div>
-     <div class="content">
-      <h3>اكتب العنوان</h3>
-      <p>و سأعرض مثال حي لهذا، من منا لم يتحمل جهد بدني شاق إلا من أجل الحصول على ميزة أو فائدة؟ ولكن من لديه الحق أن
-       ينتقد شخص ما أراد أن يشعر بالسعادة التي لا تشوبها عواقب.</p>
-      <a class="sm-default-link text-decoration-underline">تعلم المزيد</a>
-     </div>
-     <div class="badge">
-      <p class="text-capitalize">الأفضل</p>
-      <p class="text-capitalize">مبيعآ</p>
-     </div>
+      <img [src]="seller.avatar" [alt]="seller.name" class="img-fluid" />
     </div>
-    <div class="text-center">
-     <!-- <p class="title">اكتب العنوان</p>
-     <a class="anchor-default" href="javascript:void(0);">تعلم المزيد</a> -->
-    </div>
-   </div>
-   <div class="col-md-4 mb-5">
-    <div class="item">
-     <div class="image">
-      <img src="../../../../../assets/images/apply-img.png" alt="" class="img-fluid">
-     </div>
-     <div class="content">
-      <h3>اكتب العنوان</h3>
-      <p>و سأعرض مثال حي لهذا، من منا لم يتحمل جهد بدني شاق إلا من أجل الحصول على ميزة أو فائدة؟ ولكن من لديه الحق أن
-       ينتقد شخص ما أراد أن يشعر بالسعادة التي لا تشوبها عواقب.</p>
-      <a class="sm-default-link text-decoration-underline">تعلم المزيد</a>
-     </div>
-     <div class="badge">
-      <p class="text-capitalize">الأفضل</p>
-      <p class="text-capitalize">مبيعآ</p>
-     </div>
-    </div>
-    <div class="text-center">
-     <!-- <p class="title">اكتب العنوان</p>
-     <a class="anchor-default" href="javascript:void(0);">تعلم المزيد</a> -->
-    </div>
-   </div>
-   <div class="col-md-4 mb-5">
-    <div class="item">
-     <div class="image">
-      <img src="../../../../../assets/images/apply-img.png" alt="" class="img-fluid">
-     </div>
-     <div class="content">
-      <h3>اكتب العنوان</h3>
-      <p>و سأعرض مثال حي لهذا، من منا لم يتحمل جهد بدني شاق إلا من أجل الحصول على ميزة أو فائدة؟ ولكن من لديه الحق أن
-       ينتقد شخص ما أراد أن يشعر بالسعادة التي لا تشوبها عواقب.</p>
-      <a class="sm-default-link text-decoration-underline">تعلم المزيد</a>
-     </div>
-     <div class="badge">
-      <p class="text-capitalize">الأفضل</p>
-      <p class="text-capitalize">مبيعآ</p>
-     </div>
-    </div>
-    <div class="text-center">
-     <!-- <p class="title">اكتب العنوان</p>
-     <a class="anchor-default" href="javascript:void(0);">تعلم المزيد</a> -->
-    </div>
-   </div>
-   <div class="col-md-4 mb-5">
-    <div class="item">
-     <div class="image">
-      <img src="../../../../../assets/images/apply-img.png" alt="" class="img-fluid">
-     </div>
-     <div class="content">
-      <h3>اكتب العنوان</h3>
-      <p>و سأعرض مثال حي لهذا، من منا لم يتحمل جهد بدني شاق إلا من أجل الحصول على ميزة أو فائدة؟ ولكن من لديه الحق أن
-       ينتقد شخص ما أراد أن يشعر بالسعادة التي لا تشوبها عواقب.</p>
-      <a class="sm-default-link text-decoration-underline">تعلم المزيد</a>
-     </div>
-     <div class="badge">
-      <p class="text-capitalize">الأفضل</p>
-      <p class="text-capitalize">مبيعآ</p>
-     </div>
-    </div>
-    <div class="text-center">
-     <!-- <p class="title">اكتب العنوان</p>
-     <a class="anchor-default" href="javascript:void(0);">تعلم المزيد</a> -->
-    </div>
-   </div>
-   <div class="col-md-4 mb-5">
-    <div class="item">
-     <div class="image">
-      <img src="../../../../../assets/images/apply-img.png" alt="" class="img-fluid">
-     </div>
-     <div class="content">
-      <h3>اكتب العنوان</h3>
-      <p>و سأعرض مثال حي لهذا، من منا لم يتحمل جهد بدني شاق إلا من أجل الحصول على ميزة أو فائدة؟ ولكن من لديه الحق أن
-       ينتقد شخص ما أراد أن يشعر بالسعادة التي لا تشوبها عواقب.</p>
-      <a class="sm-default-link text-decoration-underline">تعلم المزيد</a>
-     </div>
-     <div class="badge">
-      <p class="text-capitalize">الأفضل</p>
-      <p class="text-capitalize">مبيعآ</p>
-     </div>
-    </div>
-    <div class="text-center">
-     <!-- <p class="title">اكتب العنوان</p>
-     <a class="anchor-default" href="javascript:void(0);">تعلم المزيد</a> -->
-    </div>
-   </div>
-   <div class="col-md-4 mb-5">
-    <div class="item">
-     <div class="image">
-      <img src="../../../../../assets/images/apply-img.png" alt="" class="img-fluid">
-     </div>
-     <div class="content">
-      <h3>اكتب العنوان</h3>
-      <p>و سأعرض مثال حي لهذا، من منا لم يتحمل جهد بدني شاق إلا من أجل الحصول على ميزة أو فائدة؟ ولكن من لديه الحق أن
-       ينتقد شخص ما أراد أن يشعر بالسعادة التي لا تشوبها عواقب.</p>
-      <a class="sm-default-link text-decoration-underline">تعلم المزيد</a>
-     </div>
      <div class="badge">
       <p class="text-capitalize">الأفضل</p>
       <p class="text-capitalize">مبيعآ</p>
@@ -318,4 +207,4 @@
  </div>
 </section>
 
-<app-footer></app-footer>
+<app-footer id="footer"></app-footer>

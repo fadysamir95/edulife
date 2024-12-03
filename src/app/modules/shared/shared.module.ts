@@ -8,6 +8,7 @@ import { ScrollDirective } from '../../shared/directives/scroll.directive';
 import { CarouselModule } from 'ngx-owl-carousel-o';
 import { LoginComponent } from '../auth/login/login.component';
 import { SignupComponent } from '../auth/signup/signup.component';
+import { RouterModule } from '@angular/router';
 
 @NgModule({
   declarations: [
@@ -22,6 +23,7 @@ import { SignupComponent } from '../auth/signup/signup.component';
     CarouselModule,
     LoginComponent,
     SignupComponent,
+    RouterModule
   ],
   exports: [
     HeaderComponent,

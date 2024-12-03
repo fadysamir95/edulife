@@ -1,47 +1,55 @@
 <app-header></app-header>
 <app-page-inner-banner [sharedMessage]="parentMessage"></app-page-inner-banner>
 <div class="container">
- <div class="diplomas carousel-area py-5">
-  <owl-carousel-o [options]="customOptions">
-   <ng-template carouselSlide>
-    <a href="javascript:void(0)" class="text-center">
-     <p>الكل</p>
-    </a>
-   </ng-template>
-   <ng-template carouselSlide>
-    <a href="javascript:void(0)" class="text-center active">
-     <img src="../../../../../assets/images/money.png" alt="">
-     <p class="mt-3">الأعمال</p>
-    </a>
-   </ng-template>
-   <ng-template carouselSlide>
-    <a href="javascript:void(0)" class="text-center">
-     <img src="../../../../../assets/images/thinking.png" alt="">
-     <p class="mt-3">البشرية</p>
-    </a>
-   </ng-template>
-   <ng-template carouselSlide>
-    <a href="javascript:void(0)" class="text-center">
-     <img src="../../../../../assets/images/person.png" alt="">
-     <p class="mt-3">المدير التنفيذى</p>
-    </a>
-   </ng-template>
-   <ng-template carouselSlide>
-    <a href="javascript:void(0)" class="text-center">
-     <img src="../../../../../assets/images/graphics.png" alt="">
-     <p class="mt-3">الجرافيكس</p>
-    </a>
-   </ng-template>
-   <ng-template carouselSlide>
-    <a href="javascript:void(0)" class="text-center">
-     <img src="../../../../../assets/images/hospitals.png" alt="">
-     <p class="mt-3">مستشفيات</p>
-    </a>
-   </ng-template>
-  </owl-carousel-o>
- </div>
+  <div class="diplomas carousel-area py-5">
+    <owl-carousel-o [options]="customOptions">
+      <ng-template carouselSlide *ngFor="let course of courses">
+        <a class="text-center" (click)="onCourseSelect(course)">
+            <img [src]="course.file" [alt]="course.name">
+          <p class="mt-3">{{ course.name }}</p>
+        </a>
+      </ng-template>
+    </owl-carousel-o>
+  </div>
 </div>
-<app-join-now></app-join-now>
-<app-join-now></app-join-now>
-<app-join-now></app-join-now>
-<app-footer></app-footer>
+
+<section class="join top-spacing mb-5 pb-5" *ngIf="selectedCourseDetails">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-3">
+          <div class="position-relative images-area">
+            <img [src]="selectedCourseDetails.file" alt="{{ selectedCourseDetails.name }}" class="main-img img-fluid">
+            <div>
+              <img [src]="selectedCourseDetails.avatar" alt="{{ selectedCourseDetails.name }}" class="about-img img-fluid">
+            </div>
+            <div class="vertical-text">
+              <p class="text-uppercase">الألاف من الطلاب <span class="color-secondary">سعداء</span></p>
+            </div>
+            <div>
+              <img src="../../../../assets/images/arrow.png" class="arrow" />
+            </div>
+          </div>
+        </div>
+        <div class="col-md-9">
+            <div class="content">
+                <h4 class="text-uppercase mb-3 mt-lg-3">{{ selectedCourseDetails.name }}</h4>
+                <div class="text-default" [innerHTML]="selectedCourseDetails.short_description"></div>
+                <!-- <p class="text-default mt-lg-4">السعر: {{ selectedCourseDetails.price }}</p> -->
+                <!-- <a class="sm-default-link text-decoration-underline">تعلم المزيد</a> -->
+                <div class="d-flex justify-content-between align-items-center mt-4 flex-wrap">
+                    <div class="feedback-area">
+                        <!-- <p class="action-btn">اعجبنى</p>
+                        <p class="action-btn me-4">تعليق</p>
+                        <input type="email" class="form-control mt-3" id="exampleFormControlInput1" placeholder="تعليقك"> -->
+                    </div>
+                    <a href="#" class="btn main-btn">انضم الأن</a>
+                </div>
+            </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+
+  
+<app-footer id="footer"></app-footer>

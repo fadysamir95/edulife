@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { StorageService } from '../../shared/services/storage.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-header',
@@ -11,7 +12,7 @@ export class HeaderComponent implements OnInit {
   isSignupPopupVisible = false;
   userName: string | null = null;
 
-  constructor(private storageService: StorageService) {}
+  constructor(private storageService: StorageService, public route: Router) {}
 
   ngOnInit() {
     this.userName = this.storageService.getItem('user_name');
@@ -40,5 +41,12 @@ export class HeaderComponent implements OnInit {
   handleUserRegistered(userName: string) {
     this.userName = userName;
     this.storageService.setItem('user_name', userName);
+  }
+
+  scrollToFooter() {
+    const footer = document.getElementById('footer');
+    if (footer) {
+      footer.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
   }
 }
