@@ -1,20 +1,25 @@
 footer {
     background-color: $off-white;
+
     .partners {
         background-color: $light-gray;
+
         .partner-logo {
             .partner {
                 @media(max-width: 768px) {
                     justify-content: center;
                     margin-bottom: 2rem;
                 }
+
                 img {
                     max-width: 40%;
+
                     @media(max-width: 768px) {
                         max-width: 40%;
                     }
                 }
             }
+
             &:last-child {
                 .partner {
                     @media(max-width: 768px) {
@@ -23,29 +28,36 @@ footer {
                 }
             }
         }
-        
+
     }
+
     p {
         font-size: 0.8rem;
         color: $black;
         font-weight: 400;
         max-width: 90%;
     }
+
     .nav-item {
         a {
             font-size: 0.8rem;
             color: $black !important;
             font-weight: 400;
-            &:hover, &:active, &:focus {
+
+            &:hover,
+            &:active,
+            &:focus {
                 color: $secondary !important;
             }
         }
+
         span {
             font-size: 0.8rem;
             color: $black !important;
             font-weight: 400;
         }
     }
+
     .footer-logo {
         max-width: 24%;
     }
@@ -54,25 +66,32 @@ footer {
         display: flex;
         justify-content: flex-end;
         gap: 10px;
-      }
-      
-      .social-icons a {
+
+        img {
+            width: 2rem;
+        }
+    }
+
+    .social-icons a {
         background: #ffffff none repeat scroll 100% 0;
         color: #2d3e50;
         display: inline-block;
-        font-size: 20px;
-        height: 31px;
+        font-size: 23px;
+        height: 40px;
         line-height: 30px;
         margin-left: 11px;
         text-align: center;
         -webkit-transition: all 0.3s ease 0s;
         transition: all 0.3s ease 0s;
-        width: 31px;
-      }
-      
-      .social-icons a:hover {
-        color: #007bff; /* Optional hover effect */
-        background-color: #f0f0f0; /* Optional hover background */
-      }
-      
+        width: 50px;
+
+    }
+
+    .social-icons a:hover {
+        color: #007bff;
+        /* Optional hover effect */
+        background-color: #f0f0f0;
+        /* Optional hover background */
+    }
+
 }

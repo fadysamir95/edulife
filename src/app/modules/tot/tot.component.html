@@ -5,7 +5,8 @@
             <div class="col-md-3">
                 <div class="position-relative images-area">
                     <img [src]="diplomaDetails?.file" alt="{{ diplomaDetails?.name }}" class="main-img img-fluid">
-                    <div><img [src]="diplomaDetails?.avatar" alt="{{ diplomaDetails?.name }}" class="about-img img-fluid"></div>
+                    <div><img [src]="diplomaDetails?.avatar" alt="{{ diplomaDetails?.name }}"
+                            class="about-img img-fluid"></div>
                     <!-- <div class="vertical-text"><p class="text-uppercase">الألاف من الطلاب <span class="color-secondary">سعداء</span></p></div> -->
                     <div><img src="../../../../assets/images/arrow.png" class="arrow" /></div>
                 </div>
@@ -16,15 +17,12 @@
                     <div class="text-default mb-5" [innerHTML]="diplomaDetails?.short_description"></div>
                     <div *ngIf="!isUserLoggedIn">
                         <a (click)="showSignupPopup()" class="btn main-btn">سجل الأن !</a>
-                      </div>
-                      
-                      <!-- Signup Popup -->
-                      <app-signup
-                        *ngIf="isSignupPopupVisible"
-                        (close)="closePopups()"
-                        (userRegistered)="handleUserRegistered($event)"
-                      ></app-signup>
-                      
+                    </div>
+
+                    <!-- Signup Popup -->
+                    <app-signup *ngIf="isSignupPopupVisible" (close)="closePopups()"
+                        (userRegistered)="handleUserRegistered($event)"></app-signup>
+
                 </div>
             </div>
         </div>
@@ -37,7 +35,8 @@
                     <p class="title-before text-capitalize">عن كورساتنا</p>
                 </div>
                 <div class="col-md-7">
-                    <h4 class="text-capitalize mb-3 side-title mt-3">لكن لا بد أن أوضح لك أن كل هذه الأفكار حول التعلم.</h4>
+                    <h4 class="text-capitalize mb-3 side-title mt-3">لكن لا بد أن أوضح لك أن كل هذه الأفكار حول التعلم.
+                    </h4>
                     <div class="details mt-3 mt-lg-5">
                         <p class="subtitle text-capitalize">التفاصيل:</p>
                         <div class="text-default mt-3" [innerHTML]="diplomaDetails?.long_description"></div>
@@ -54,29 +53,21 @@
                     <div class="top">
                         <div class="item">
                             <div class="icon-wrapper">
-                                <img src="../../../../../assets/images/document.png" class="img-fluid" />
+                                <img src="../../../../../assets/images/student.png" class="img-fluid" />
                             </div>
                             <div class="text">
-                                <h3>شهادة أصيلة</h3>
-                                <p>احصل على شهادة عند الانتهاء</p>
+                                <h3>نظام الدراسة</h3>
+                                <p>اختر بين الدراسة حضوري او عبر الإنترنت بسهولة</p>
                             </div>
                         </div>
                         <div class="item">
                             <div class="icon-wrapper">
-                                <img src="../../../../../assets/images/screen.png" class="img-fluid" />
+                                <img src="../../../../../assets/images/semester.png" class="img-fluid" />
                             </div>
                             <div class="text">
-                                <h3>دروس على الأنترنت</h3>
-                                <p>ابدأ على الفور وتعلم بنفسك</p>
-                            </div>
-                        </div>
-                        <div class="item">
-                            <div class="icon-wrapper">
-                                <img src="../../../../../assets/images/infinity.png" class="img-fluid" />
-                            </div>
-                            <div class="text">
-                                <h3>إمكانية الوصول مدى الحياة</h3>
-                                <p>تحديد مواعيد نهائية مرنة والحفاظ عليها</p>
+                                <h3> مرونة الدراسة </h3>
+                                <p> استمتع بجدول دراسي يناسب وقتك صباحًا أو مساءً.
+                                </p>
                             </div>
                         </div>
                         <div class="item">
@@ -84,30 +75,47 @@
                                 <img src="../../../../../assets/images/levels.png" class="img-fluid" />
                             </div>
                             <div class="text">
-                                <h3>مستوى المبتدئين</h3>
-                                <p>لا يشترط خبرة سابقة</p>
+                                <h3>مستوي الدراسة
+                                </h3>
+                                <p>متاح لجميع المستويات المبتدئ والمتقدم.
+                                </p>
                             </div>
                         </div>
                         <div class="item">
                             <div class="icon-wrapper">
-                                <img src="../../../../../assets/images/cc.png" class="img-fluid" />
+                                <img src="../../../../../assets/images/document.png" class="img-fluid" />
+
+
                             </div>
                             <div class="text">
-                                <h3>دعم الترجمات</h3>
-                                <p>الإنجليزية والهندية والماراثية</p>
+                                <h3> شهادة معتمدة
+                                </h3>
+                                <p>يتم الحصول على شهادة معتمدة محلياً ودوليًا.
+                                </p>
+                            </div>
+                        </div>
+                        <div class="item">
+                            <div class="icon-wrapper">
+                                <img src="../../../assets/images/books-stack.png" class="ms-2" />
+                            </div>
+                            <div class="text">
+                                <h3>المادة العلمية
+                                </h3>
+                                <p>تحديث مستمر لتناسب التطورات العمليه والمهنية.</p>
                             </div>
                         </div>
                     </div>
-                    
+
                     <div class="bottom">
                         <div class="download">
                             <a [href]="diplomaDetails?.material_link" target="_blank">
                                 <img src="../../../../../assets/images/download.png" class="ms-2" />
                                 قم بتنزيل المنهج للحصول على التفاصيل الكاملة
-                              </a>                        </div>
+                            </a>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
-<app-footer></app-footer>
+    <app-footer></app-footer>
