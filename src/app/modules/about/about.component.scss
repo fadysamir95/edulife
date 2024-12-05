@@ -1,37 +1,53 @@
 .highlights {
- h2 {
-  color: #193148;
-  font-size: 6rem;
-  @media(max-width: 768px) {
-   font-size: 3rem;
-  }
- }
- h3 {
-  color: #E4B039;
-  font-size: 6rem;
-  @media(max-width: 768px) {
-   font-size: 3rem;
-  }
- }
+    h2 {
+        color: #193148;
+        font-size: 6rem;
+
+        @media(max-width: 768px) {
+            font-size: 3rem;
+        }
+    }
+
+    h3 {
+        color: #E4B039;
+        font-size: 6rem;
+
+        @media(max-width: 768px) {
+            font-size: 3rem;
+        }
+    }
 }
 
 .features {
- h2 {
-  font-weight: 600;
-  color: #193148;
- }
- .text-left {
-  text-align: left;
- }
- .item {
-  margin-bottom: 8rem;
-  @media(max-width: 768px) {
-   margin-bottom: 4rem;
-  }
- }
- .d-xs-none {
-  @media(max-width: 768px) {
-   display: none;
-  }
- }
+    img {
+        max-width: 200px;
+    }
+
+    h2 {
+        font-weight: 600;
+        color: #193148;
+    }
+
+    .text-left {
+        text-align: left;
+    }
+
+    .item {
+        margin-bottom: 8rem;
+
+        @media(max-width: 768px) {
+            margin-bottom: 4rem;
+        }
+    }
+
+    .d-xs-none {
+        @media(max-width: 768px) {
+            display: none;
+        }
+    }
+}
+
+.paragraph-title {
+    font-size: 2rem;
+    font-weight: bold;
 }

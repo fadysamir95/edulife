@@ -39,4 +39,11 @@ export class StorageService {
       }
     }
   }
+
+  clearStorage(): void {
+    if (this.isBrowser) {
+      localStorage.clear(); // Clear all stored items
+      this.userNameSubject.next(null);
+    }
+  }
 }

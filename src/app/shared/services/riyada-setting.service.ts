@@ -73,5 +73,37 @@ getCities(body: { country_id: number, lang: string }): Observable<{ id: number; 
     return this.settingsSubject.getValue(); // Get the current value synchronously
   }
 
+    /**
+   * Fetch Instagram Feeds
+   */
+    getInstagramFeeds(accessToken: any): Observable<any[]> {
+      const apiUrl = 'https://graph.instagram.com/me/media';
+      const fields = 'id,caption,media_type,media_url,thumbnail_url,permalink';
+      const url = `${apiUrl}?fields=${fields}&access_token=${accessToken}`;
+      return this.http.get<{ data: any[] }>(url).pipe(
+        map((response) => response.data),
+        catchError((error) => {
+          console.error('Error fetching Instagram feeds:', error);
+          throw error;
+        })
+      );
+    }
+
+    subscribeToCourse(courseId: number, data: { address: string; image: File }, lang: string = 'ar'): Observable<any> {
+      const url = `${this.baseUrl}subscribe_course/${courseId}?lang=${lang}`;
+      const formData = new FormData();
+      
+      formData.append('address', data.address);
+      formData.append('image', data.image); // Handle single file
+      
+      return this.http.post(url, formData).pipe(
+        catchError((error) => {
+          console.error('Error subscribing to course:', error);
+          throw error;
+        })
+      );
+    }
+    
+    
 
 }

@@ -9,8 +9,8 @@
     {{ settingsInfo.about_slogan_ar }}
   </p>
      <div class="pb-4 links">
-    <a href="#" class="btn main-btn">انضم الأن !</a>
-    <a href="#" class="text-decoration-underline link me-5">تعلم المزيد</a>
+    <a routerLink="/diplomas" class="btn main-btn">انضم الأن !</a>
+    <!-- <a routerLink="/about" class="text-decoration-underline link me-5">تعلم المزيد</a> -->
    </div>
   </div>
   <div class="img-area">
@@ -146,38 +146,32 @@
 </section>
 
 <section class="classes top-spacing mb-5">
- <div class="container">
-  <div class="row">
-   <div class="col-md-12">
-    <div class="top-spacing">
-     <h4 class="text-uppercase mb-3 side-title">معرض الصور</h4>
-     <p class="text-default mb-3 mb-lg-5">لكن لا بد أن أوضح لك أن كل هذه الأفكار المغلوطة حول استنكار النشوة وتمجيد
-      الألم نشأت بالفعل، وسأعرض لك التفاصيل لتكتشف حقيقة وأساس تلك السعادة البشرية، فلا أحد يرفض أو يكره أو يتجنب الشعور
-      بالسعادة، ولكن بفضل هؤلاء الأشخاص الذين لا يدركون بأن السعادة لا بد أن نستشعرها بصورة أكثر عقلانية .</p>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="top-spacing">
+          <h4 class="text-uppercase mb-3 side-title">معرض الصور</h4>
+          <p class="text-default mb-3 mb-lg-5">
+            لكن لا بد أن أوضح لك أن كل هذه الأفكار المغلوطة حول استنكار النشوة وتمجيد الألم نشأت بالفعل، وسأعرض لك
+            التفاصيل لتكتشف حقيقة وأساس تلك السعادة البشرية، فلا أحد يرفض أو يكره أو يتجنب الشعور بالسعادة، ولكن بفضل
+            هؤلاء الأشخاص الذين لا يدركون بأن السعادة لا بد أن نستشعرها بصورة أكثر عقلانية.
+          </p>
+        </div>
+      </div>
     </div>
-   </div>
   </div>
- </div>
- <div class="carousel-area pb-lg-5">
-  <owl-carousel-o [options]="customOptions">
-   <ng-template carouselSlide>
-    <img src="../../../../../assets/images/apply-img.png" alt="">
-   </ng-template>
-   <ng-template carouselSlide>
-    <img src="../../../../../assets/images/apply-img.png" alt="">
-   </ng-template>
-   <ng-template carouselSlide>
-    <img src="../../../../../assets/images/apply-img.png" alt="">
-   </ng-template>
-   <ng-template carouselSlide>
-    <img src="../../../../../assets/images/apply-img.png" alt="">
-   </ng-template>
-   <ng-template carouselSlide>
-    <img src="../../../../../assets/images/apply-img.png" alt="">
-   </ng-template>
-  </owl-carousel-o>
- </div>
+  <div class="carousel-area pb-lg-5">
+    <owl-carousel-o [options]="customOptions">
+      <ng-template carouselSlide *ngFor="let post of instagramPosts">
+        <a [href]="post.permalink" target="_blank">
+          <img *ngIf="post.media_type === 'IMAGE' || post.media_type === 'CAROUSEL_ALBUM'" [src]="post.media_url" alt="Instagram Image">
+          <video *ngIf="post.media_type === 'VIDEO'" [src]="post.media_url" controls></video>
+        </a>
+      </ng-template>
+    </owl-carousel-o>
+  </div>
 </section>
+
 
 <section class="member">
  <div class="container">

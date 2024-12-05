@@ -52,42 +52,34 @@
         </small>
       </div>
 
-<!-- Country Dropdown -->
-<div class="form-group">
-  <select
-    class="form-control mb-3"
-    formControlName="country_id"
-    (change)="onCountryChange($event)"
-  >
-    <option value="" disabled selected>اختر الدولة</option>
-    <option *ngFor="let country of countries" [value]="country.id">
-      {{ country.name }}
-    </option>
-  </select>
-  <small
-    class="text-danger"
-    *ngIf="signupForm.get('country_id')?.touched && signupForm.get('country_id')?.hasError('required')"
-  >
-    يرجى اختيار الدولة
-  </small>
-</div>
+      <!-- Country Dropdown -->
+      <div class="form-group">
+        <select class="form-control mb-3" formControlName="country_id" (change)="onCountryChange($event)">
+          <option value="" disabled selected>اختر الدولة</option>
+          <option *ngFor="let country of countries" [value]="country.id">
+            {{ country.name }}
+          </option>
+        </select>
+        <small class="text-danger"
+          *ngIf="signupForm.get('country_id')?.touched && signupForm.get('country_id')?.hasError('required')">
+          يرجى اختيار الدولة
+        </small>
+      </div>
 
 
-<!-- City Dropdown -->
-<div class="form-group">
-  <select class="form-control mb-3" formControlName="city_id">
-    <option value="" disabled selected>اختر المحافظة</option>
-    <option *ngFor="let city of cities" [value]="city.id">
-      {{ city.name }}
-    </option>
-  </select>
-  <small
-    class="text-danger"
-    *ngIf="signupForm.get('city_id')?.touched && signupForm.get('city_id')?.hasError('required')"
-  >
-    يرجى اختيار المحافظة
-  </small>
-</div>
+      <!-- City Dropdown -->
+      <div class="form-group">
+        <select class="form-control mb-3" formControlName="city_id">
+          <option value="" disabled selected>اختر المحافظة</option>
+          <option *ngFor="let city of cities" [value]="city.id">
+            {{ city.name }}
+          </option>
+        </select>
+        <small class="text-danger"
+          *ngIf="signupForm.get('city_id')?.touched && signupForm.get('city_id')?.hasError('required')">
+          يرجى اختيار المدينة
+        </small>
+      </div>
 
 
       <!-- Submit Button -->

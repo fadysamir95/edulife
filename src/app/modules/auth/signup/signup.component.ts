@@ -75,7 +75,7 @@ export class SignupComponent implements OnInit {
   onCountryChange(event: Event): void {
     const target = event.target as HTMLSelectElement; // Safely cast the event target
     const countryId = target?.value ? parseInt(target.value, 10) : null;
-  
+
     if (countryId) {
       this.signupForm.get('city_id')?.setValue(null); // Reset city selection
       this.loadCities(countryId); // Fetch cities for the selected country
@@ -83,7 +83,7 @@ export class SignupComponent implements OnInit {
       console.error('Invalid country selection');
     }
   }
-  
+
 
   loadCities(countryId: number) {
     this.settingsService.getCities({ country_id: countryId, lang: 'ar' }).subscribe({

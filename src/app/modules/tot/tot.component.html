@@ -4,9 +4,11 @@
         <div class="row">
             <div class="col-md-3">
                 <div class="position-relative images-area">
+
                     <img [src]="diplomaDetails?.file" alt="{{ diplomaDetails?.name }}" class="main-img img-fluid">
-                    <div><img [src]="diplomaDetails?.avatar" alt="{{ diplomaDetails?.name }}"
-                            class="about-img img-fluid"></div>
+
+                    <!-- <div><img [src]="diplomaDetails?.avatar" alt="{{ diplomaDetails?.name }}"
+                            class="about-img img-fluid"></div> -->
                     <!-- <div class="vertical-text"><p class="text-uppercase">الألاف من الطلاب <span class="color-secondary">سعداء</span></p></div> -->
                     <div><img src="../../../../assets/images/arrow.png" class="arrow" /></div>
                 </div>
@@ -15,6 +17,42 @@
                 <div class="content">
                     <h1 class="mb-4 w-100">{{ diplomaDetails?.name }}</h1>
                     <div class="text-default mb-5" [innerHTML]="diplomaDetails?.short_description"></div>
+                    <a class="btn main-btn ms-4" (click)="showSubscriptionPopup()">انضم الأن !</a>
+
+                    <!-- Subscription Popup -->
+                    <div *ngIf="isSubscriptionPopupVisible" class="popup-overlay">
+                      <div class="popup-content">
+                        <button class="close-btn" (click)="closeSubscriptionPopup()">×</button>
+                        <h3>اشتراك في الدورة</h3>
+                        <form (ngSubmit)="submitSubscriptionForm()">
+                            <div class="form-group">
+                              <label for="address">Address:</label>
+                              <input
+                                type="text"
+                                id="address"
+                                [(ngModel)]="subscriptionForm.address"
+                                name="address"
+                                class="form-control"
+                                required
+                              />
+                            </div>
+                            <div class="form-group">
+                              <label for="image">Upload Image:</label>
+                              <input
+                                type="file"
+                                id="image"
+                                (change)="handleFileSelection($event)"
+                                accept="image/*"
+                                class="form-control"
+                                required
+                              />
+                            </div>
+                            <button type="submit" class="btn btn-primary">Submit</button>
+                          </form>
+                          
+                      </div>
+                    </div>
+                    
                     <div *ngIf="!isUserLoggedIn">
                         <a (click)="showSignupPopup()" class="btn main-btn">سجل الأن !</a>
                     </div>
@@ -31,14 +69,14 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-12">
-                    <h2 class="faint-title">عن كورساتنا</h2>
-                    <p class="title-before text-capitalize">عن كورساتنا</p>
+                    <!-- <h2 class="faint-title">عن كورساتنا</h2> -->
+                    <p class="title-before text-capitalize description">عن الدبلوم التدريبي </p>
                 </div>
                 <div class="col-md-7">
-                    <h4 class="text-capitalize mb-3 side-title mt-3">لكن لا بد أن أوضح لك أن كل هذه الأفكار حول التعلم.
-                    </h4>
+                    <!-- <h4 class="text-capitalize mb-3 side-title mt-3">لكن لا بد أن أوضح لك أن كل هذه الأفكار حول التعلم.
+                    </h4> -->
                     <div class="details mt-3 mt-lg-5">
-                        <p class="subtitle text-capitalize">التفاصيل:</p>
+                        <!-- <p class="subtitle text-capitalize">التفاصيل:</p> -->
                         <div class="text-default mt-3" [innerHTML]="diplomaDetails?.long_description"></div>
 
                         <!-- <ul class="mt-3 mb-4">
@@ -118,4 +156,4 @@
             </div>
         </div>
     </section>
-    <app-footer></app-footer>
+    <app-footer id="footer"></app-footer>

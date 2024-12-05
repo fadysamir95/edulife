@@ -10,19 +10,34 @@ import { Observable, throwError } from 'rxjs';
 import { catchError, finalize } from 'rxjs/operators';
 import { NotificationService } from '../services/notification.service';
 import { SpinnerService } from '../services/spinner.service';
+import { StorageService } from './storage.service';
 
 @Injectable()
 export class ErrorInterceptor implements HttpInterceptor {
   constructor(
     private notificationService: NotificationService,
-    private spinnerService: SpinnerService
+    private spinnerService: SpinnerService,
+    private storageService: StorageService
   ) {}
 
   intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
     // Show the spinner at the start of the request
     this.spinnerService.show();
 
-    return next.handle(req).pipe(
+    // Retrieve token from StorageService
+    const token = this.storageService.getItem('access_token');
+
+    // Clone the request to add the Authorization header if token exists
+    let clonedRequest = req;
+    if (token) {
+      clonedRequest = req.clone({
+        setHeaders: {
+          Authorization: `Bearer ${token}`,
+        },
+      });
+    }
+
+    return next.handle(clonedRequest).pipe(
       catchError((error: HttpErrorResponse) => {
         console.error('HTTP Error:', error); // Log for debugging
 
@@ -30,6 +45,7 @@ export class ErrorInterceptor implements HttpInterceptor {
           this.notificationService.showError(
             'Network error occurred. Please check your connection and try again.'
           );
+      
         } else {
           const errorMessage = this.getErrorMessage(error);
           this.notificationService.showError(errorMessage);

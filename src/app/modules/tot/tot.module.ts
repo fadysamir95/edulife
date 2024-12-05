@@ -4,6 +4,7 @@ import { TotComponent } from './tot.component';
 import { SharedModule } from '../shared/shared.module';
 import { RouterModule, Routes } from '@angular/router';
 import { SignupComponent } from '../auth/signup/signup.component';
+import { FormsModule } from '@angular/forms';
 
 const routes: Routes = [
   {
@@ -20,7 +21,8 @@ const routes: Routes = [
     CommonModule,
     SharedModule,
     RouterModule.forChild(routes),
-    SignupComponent
+    SignupComponent,
+    FormsModule
   ],
 })
 export class TotModule {}

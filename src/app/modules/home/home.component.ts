@@ -4,6 +4,7 @@ import { SettingsService } from '../../shared/services/riyada-setting.service';
 import { Router } from '@angular/router';
 import { environment } from '../../../environments/environment';
 import { BehaviorSubject } from 'rxjs';
+import { StorageService } from '../../shared/services/storage.service';
 
 @Component({
   selector: 'app-home',
@@ -14,6 +15,7 @@ export class HomeComponent implements OnInit {
   aboutSloganImage: string | null = null;
   settingsInfo: any;
   settingsService = inject(SettingsService);
+  storageService = inject(StorageService)
   router = inject(Router)
   customOptions: OwlOptions = {
     loop: false,
@@ -43,10 +45,12 @@ export class HomeComponent implements OnInit {
   }
   sloganImage: string | null = null;
   bestSellers: any[] = [];
+  instagramPosts: any[] = []; // New: Instagram posts
 
   ngOnInit(): void {
     this.getSettingsData()
     this.getBestSellers()
+    this.getInstagramFeeds()
   }
 
   getSettingsData() {
@@ -70,6 +74,19 @@ export class HomeComponent implements OnInit {
       error: (error) => {
         console.error('Error fetching best sellers:', error);
       },
+    });
+  }
+
+
+  // New: Fetch Instagram feeds
+  getInstagramFeeds(): void {
+    const accessToken = this.storageService.getItem('access_token');
+    this.settingsService.getInstagramFeeds(accessToken).subscribe({
+      next: (posts) => {
+        this.instagramPosts = posts;
+        console.log('Instagram Posts:', this.instagramPosts);
+      },
+      error: (err) => console.error('Error fetching Instagram posts:', err),
     });
   }
   
