@@ -1,6 +1,7 @@
 <app-header></app-header>
 
-<div *ngIf="article" class="article-details-container">
+<div class="container">
+  <div *ngIf="article" class="article-details-container py-4">
     <div class="image-container">
       <img [src]="article.file" [alt]="article.name" class="img-fluid article-image">
     </div>
@@ -10,7 +11,6 @@
       <div class="long-description" [innerHTML]="article.long_description"></div>
     </div>
   </div>
-  
+</div>
 
-  <app-footer id="footer"></app-footer>
-ng
+<app-footer id="footer"></app-footer>

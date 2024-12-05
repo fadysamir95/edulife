@@ -35,7 +35,7 @@
     }
 
     .lg-text {
-        margin-right: 4.5rem;
+        margin-right: 0rem;
         font-size: 3rem;
 
         @media(max-width: 768px) {
@@ -61,6 +61,9 @@
     }
 
     .img-area {
+        .main-img {
+            max-width: 21rem;
+        }
         @media(max-width: 768px) {
             display: none;
         }
@@ -184,7 +187,7 @@
             width: 100%;
             margin-right: 20%;
             position: relative;
-
+            max-width: 16rem;
             @media(max-width: 768px) {
                 margin-right: 0;
             }
@@ -480,18 +483,19 @@
             width: 100%;
             object-fit: cover;
             border-radius: 0.7rem;
+            max-width: 23rem;
         }
     }
 
     .word-bg {
         position: absolute;
         left: 9rem;
-        bottom: -8rem;
+        bottom: -7.5rem;
         opacity: 0.5;
 
         @media(min-width: 1700px) {
             left: 10rem;
-            bottom: -8rem;
+            bottom: -7.5rem;
         }
 
         @media(max-width: 768px) {
