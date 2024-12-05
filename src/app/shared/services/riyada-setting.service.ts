@@ -40,6 +40,18 @@ export class SettingsService {
       map((response) => response.data)
     );
   }
+/**
+ * Fetch cities data from the API
+ */
+getCities(body: { country_id: number, lang: string }): Observable<{ id: number; name: string }[]> {
+  const url = `${this.baseUrl}get-cites`;
+  return this.http.post<{ data: { id: number; name: string }[] }>(url, body).pipe(
+    map((response) => response.data)
+  );
+}
+
+
+
 
   getBestSellers(lang: string = 'ar'): Observable<{ data: any[] }> {
     const url = `${this.baseUrl}get_diplomas_best_seller?lang=${lang}`;
@@ -50,8 +62,8 @@ export class SettingsService {
       })
     );
   }
-  
-  
+
+
 
   setDataSettings(data: any): void {
     this.settingsSubject.next(data); // Update the settings

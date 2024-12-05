@@ -17,6 +17,7 @@ export class AboutComponent implements OnInit {
   staticties_ar: string | null = null;
   mision_ar: string | null = null;
   aboutSloganImage!: string;
+  aboutImage!: string;
 
   ngOnInit(): void {
     this.getSettingsData()
@@ -28,6 +29,7 @@ export class AboutComponent implements OnInit {
       this.settingsInfo = response;
       const adjustedBaseUrl = this.baseUrl.replace('/api', '');
       this.aboutSloganImage = adjustedBaseUrl + this.settingsInfo.about_slogan_image
+      this.aboutImage = adjustedBaseUrl + this.settingsInfo.about_image
       console.log(response);
     });
   }

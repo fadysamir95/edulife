@@ -16,14 +16,15 @@
 <section class="apply top-spacing mb-5">
  <div class="container">
   <div class="mb-5 pb-4">
-    <h4 class="text-uppercase mb-4 side-title">عن الشركة</h4>
+    <h4 class="text-uppercase mb-4 side-title">عن المعهد</h4>
     <p>نحن نساعد طلابنا بالمعدات والمعلمين والفصول الدراسية حتى يتمكنوا من تحقيق أهدافهم الجامعية بسهولة. نحن نقدم رعاية حقيقية لكل عضو.</p>
   </div>
   <div class="row">
    <div class="col-md-3">
     <div class="position-relative images-area">
-     <img src="../../../../../assets/images/apply-img.png" alt="" class="main-img img-fluid">
-     <!-- <div><img src="../../../../assets/images/about-img.png" class="about-img img-fluid" /></div> -->
+      <img [src]="aboutImage || '../../../../../assets/images/apply-img.png'" 
+      alt="Slogan Image" 
+      class="main-img img-fluid">     <!-- <div><img src="../../../../assets/images/about-img.png" class="about-img img-fluid" /></div> -->
      <!-- <div class="vertical-text">
       <p class="text-uppercase">الألاف من الطلاب <span class="color-secondary">سعداء</span></p>
      </div> -->

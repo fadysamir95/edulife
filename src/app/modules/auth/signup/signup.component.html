@@ -4,55 +4,96 @@
 
     <h4 class="text-uppercase mb-4 side-title">انشئ حساب</h4>
     <form [formGroup]="signupForm" (ngSubmit)="onSubmit()">
+      <!-- Name Field -->
       <div class="form-group">
-        <input
-          type="text"
-          class="form-control mb-3"
-          formControlName="name"
-          placeholder="الاسم"
-        />
+        <input type="text" class="form-control mb-3" formControlName="name" placeholder="الاسم" />
+        <small class="text-danger"
+          *ngIf="signupForm.get('name')?.touched && signupForm.get('name')?.hasError('required')">
+          الاسم مطلوب
+        </small>
       </div>
+
+      <!-- Email Field -->
       <div class="form-group">
-        <input
-          type="email"
-          class="form-control mb-3"
-          formControlName="email"
-          placeholder="البريد الإلكتروني"
-        />
+        <input type="email" class="form-control mb-3" formControlName="email" placeholder="البريد الإلكتروني" />
+        <small class="text-danger"
+          *ngIf="signupForm.get('email')?.touched && signupForm.get('email')?.hasError('required')">
+          البريد الإلكتروني مطلوب
+        </small>
+        <small class="text-danger"
+          *ngIf="signupForm.get('email')?.touched && signupForm.get('email')?.hasError('email')">
+          البريد الإلكتروني غير صالح
+        </small>
       </div>
+
+      <!-- Phone Field -->
       <div class="form-group">
-        <input
-          type="text"
-          class="form-control mb-3"
-          formControlName="phone"
-          placeholder="رقم الجوال"
-        />
+        <input type="text" class="form-control mb-3" formControlName="phone" placeholder="رقم الجوال" />
+        <small class="text-danger"
+          *ngIf="signupForm.get('phone')?.touched && signupForm.get('phone')?.hasError('required')">
+          رقم الجوال مطلوب
+        </small>
+        <small class="text-danger"
+          *ngIf="signupForm.get('phone')?.touched && signupForm.get('phone')?.hasError('minlength')">
+          رقم الجوال يجب أن يكون على الأقل 10 أرقام
+        </small>
       </div>
+
+      <!-- Password Field -->
       <div class="form-group">
-        <input
-          type="password"
-          class="form-control mb-3"
-          formControlName="password"
-          placeholder="كلمة المرور"
-        />
+        <input type="password" class="form-control mb-3" formControlName="password" placeholder="كلمة المرور" />
+        <small class="text-danger"
+          *ngIf="signupForm.get('password')?.touched && signupForm.get('password')?.hasError('required')">
+          كلمة المرور مطلوبة
+        </small>
+        <small class="text-danger"
+          *ngIf="signupForm.get('password')?.touched && signupForm.get('password')?.hasError('minlength')">
+          كلمة المرور يجب أن تكون 8 أحرف على الأقل
+        </small>
       </div>
-      <div class="form-group">
-        <input
-          type="text"
-          class="form-control mb-3"
-          formControlName="country_id"
-          placeholder="الدولة"
-        />
-      </div>
-      <div class="form-group">
-        <input
-          type="text"
-          class="form-control mb-3"
-          formControlName="city_id"
-          placeholder="المحافظة"
-        />
-      </div>
-      <button type="submit" class="btn main-btn" [disabled]="signupForm.invalid">تسجيل</button>
+
+<!-- Country Dropdown -->
+<div class="form-group">
+  <select
+    class="form-control mb-3"
+    formControlName="country_id"
+    (change)="onCountryChange($event)"
+  >
+    <option value="" disabled selected>اختر الدولة</option>
+    <option *ngFor="let country of countries" [value]="country.id">
+      {{ country.name }}
+    </option>
+  </select>
+  <small
+    class="text-danger"
+    *ngIf="signupForm.get('country_id')?.touched && signupForm.get('country_id')?.hasError('required')"
+  >
+    يرجى اختيار الدولة
+  </small>
+</div>
+
+
+<!-- City Dropdown -->
+<div class="form-group">
+  <select class="form-control mb-3" formControlName="city_id">
+    <option value="" disabled selected>اختر المحافظة</option>
+    <option *ngFor="let city of cities" [value]="city.id">
+      {{ city.name }}
+    </option>
+  </select>
+  <small
+    class="text-danger"
+    *ngIf="signupForm.get('city_id')?.touched && signupForm.get('city_id')?.hasError('required')"
+  >
+    يرجى اختيار المحافظة
+  </small>
+</div>
+
+
+      <!-- Submit Button -->
+      <button type="submit" class="btn main-btn" [disabled]="signupForm.invalid">
+        تسجيل
+      </button>
     </form>
   </div>
 </div>

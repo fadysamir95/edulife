@@ -32,6 +32,9 @@ export class DiplomasComponent implements OnInit {
     margin: 20,
     navText: ['<span class="custom-prev">‹</span>', '<span class="custom-next">›</span>'],
     rtl: true,
+    autoplay: true,
+    autoplayTimeout: 1000,
+    autoplayHoverPause: true,
     responsive: {
       0: { items: 1 },
       400: { items: 2 },

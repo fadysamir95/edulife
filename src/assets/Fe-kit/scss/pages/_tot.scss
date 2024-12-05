@@ -69,6 +69,7 @@
         }
         .bottom {
             margin-right: 1rem;
+            flex-direction: column;
             a {
                 border: 1px solid $secondary;
                 padding: 0.6rem 1.2rem;

@@ -62,7 +62,7 @@
 
     .img-area {
         .main-img {
-            max-width: 21rem;
+            max-width: 25rem;
         }
         @media(max-width: 768px) {
             display: none;
@@ -368,13 +368,13 @@
     }
 
     .title {
-        font-size: 0.9rem;
+        font-size: 1.5rem;
         font-weight: 700;
         line-height: 20.83px;
         letter-spacing: 0.02em;
-        margin-top: 1rem;
+        margin-top: 3rem;
         text-align: center;
-        color: $black;
+        color: $secondary;
     }
 }
 

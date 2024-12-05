@@ -74,8 +74,9 @@
 <section class="apply top-spacing mb-5">
  <div class="container">
   <div class="mb-5 pb-4">
-    <h4 class="text-uppercase mb-4 side-title">عن الشركة</h4>
-    <p>نحن نساعد طلابنا بالمعدات والمعلمين والفصول الدراسية حتى يتمكنوا من تحقيق أهدافهم الجامعية بسهولة. نحن نقدم رعاية حقيقية لكل عضو.</p>
+    <h4 class="text-uppercase mb-4 side-title"> لماذا نحن !
+    </h4>
+    <p>معهد الريادة العلمي خبرة تتجاوز 9 سنوات في مجال التعليم والتدريب، نجحنا خلالهم في بناء سجل حافل من الإنجازات وتعاونا مع العديد من الجهات الحكومية والخاصة لعقد اكثر من 250 دورة و دبلوم تدريبي.</p>
   </div>
   <div class="row">
    <div class="col-md-3">
@@ -101,7 +102,7 @@
    </div>
    <div class="col-md-9">
     <div class="content">
-     <h4 class="text-uppercase mb-3 mt-lg-3">الألاف من الطلاب <span class="color-secondary">سعداء</span></h4>
+     <h4 class="text-uppercase mb-3 mt-lg-3"> طريقك نحو  <span class="color-secondary">الإحتراف</span></h4>
      <p class="text-default">{{settingsInfo?.about_us_ar}}
      </p>
      <!-- <p class="text-default mt-lg-4 mb-5">لكن لا بد أن أوضح لك أن كل هذه الأفكار المغلوطة حول استنكار النشوة وتمجيد الألم
@@ -119,12 +120,12 @@
 
 <section class="best-seller top-spacing mb-5">
  <div class="container">
-  <h4 class="text-uppercase mb-4 side-title">الأفضل<span class="color-secondary"> مبيعا</span></h4>
+  <h4 class="text-uppercase mb-5 side-title">الأفضل<span class="color-secondary"> مبيعا</span></h4>
   <div class="row">
    <div class="col-md-4 mb-5" *ngFor="let seller of bestSellers">
     <div class="item">
      <div class="image">
-      <img [src]="seller.avatar" [alt]="seller.name" class="img-fluid" />
+      <img [src]="seller.file" [alt]="seller.name" class="img-fluid" />
     </div>
      <div class="badge">
       <p class="text-capitalize">الأفضل</p>
@@ -132,8 +133,8 @@
      </div>
     </div>
     <div class="text-center">
-     <!-- <p class="title">اكتب العنوان</p>
-     <a class="anchor-default" href="javascript:void(0);">تعلم المزيد</a> -->
+      <p class="title">{{seller.name}} </p>
+     <!-- <a class="anchor-default" href="javascript:void(0);">تعلم المزيد</a>  -->
     </div>
    </div>
   </div>
