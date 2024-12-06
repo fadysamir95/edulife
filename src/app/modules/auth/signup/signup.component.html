@@ -70,7 +70,7 @@
       <!-- City Dropdown -->
       <div class="form-group">
         <select class="form-control mb-3" formControlName="city_id">
-          <option value="" disabled selected>اختر المحافظة</option>
+          <option value="" disabled selected>اختر المدينة</option>
           <option *ngFor="let city of cities" [value]="city.id">
             {{ city.name }}
           </option>

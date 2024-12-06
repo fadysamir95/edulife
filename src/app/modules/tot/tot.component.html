@@ -17,7 +17,7 @@
                 <div class="content">
                     <h1 class="mb-4 w-100">{{ diplomaDetails?.name }}</h1>
                     <div class="text-default mb-5" [innerHTML]="diplomaDetails?.short_description"></div>
-                    <a class="btn main-btn ms-4" (click)="showSubscriptionPopup()">انضم الأن !</a>
+                    <a *ngIf="isUserLoggedIn" class="btn main-btn ms-4" (click)="showSubscriptionPopup()">انضم الأن !</a>
 
                     <!-- Subscription Popup -->
                     <div *ngIf="isSubscriptionPopupVisible" class="popup-overlay">
