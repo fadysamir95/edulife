@@ -17,10 +17,6 @@ const routes: Routes = [
   },
 
   {
-    path: 'tot',
-    loadChildren: () => import('./modules/tot/tot.module').then(m => m.TotModule),
-  },
-  {
     path: 'articles',
     loadChildren: () => import('./modules/articles/articles.module').then(m => m.ArticlesModule),
   },

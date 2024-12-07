@@ -89,6 +89,7 @@ export class DiplomasComponent implements OnInit {
   }
 
   navigateToDetails(slug: string): void {
-    this.router.navigate(['/tot', slug]); // Navigate to the 'tot' route with the slug
+    this.router.navigate(['/diplomas', slug]); // Navigate to diplomas/:slug
   }
+  
 }
