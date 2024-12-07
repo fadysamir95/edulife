@@ -45,13 +45,19 @@
                                 class="form-control mb-3"
                                 required
                               />
+                              <p class="text-muted mt-1">برجاء ارفاق صورة الهوية</p>
                             </div>
-                            <button type="submit" class="btn dark-blue-btn" [disabled]="!subscriptionForm.address || !subscriptionForm.image">
+                            <button
+                              type="submit"
+                              class="btn dark-blue-btn"
+                              [disabled]="!subscriptionForm.address || !subscriptionForm.image"
+                            >
                               إرسال
                             </button>
                           </form>
                         </div>
                       </div>
+                      
                       
                     
                     <div *ngIf="!isUserLoggedIn">

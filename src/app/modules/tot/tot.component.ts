@@ -28,12 +28,8 @@ export class TotComponent implements OnInit {
     address: '',
     image: null as File | null, // Single file
   };
-  
-
-
 
   coursesService = inject(CoursesService)
-
   constructor(private route: ActivatedRoute, private http: HttpClient,     private notificationService: NotificationService,
   ) {}
 
@@ -127,7 +123,7 @@ submitSubscriptionForm(): void {
     })
     .subscribe({
       next: (response) => {
-        this.notificationService.showSuccess('تم تسجيلك في الدبلوم بنجاح', 'تهانينا')
+        this.notificationService.showSuccess('تم تسجيلك في الدبلوم بنجاح', 'سيتم التواصل معك في خلال 24 ساعة من الإدارة.')
         this.closeSubscriptionPopup();
       },
       error: (error) => {
