@@ -225,8 +225,8 @@
 
         .arrow {
             position: absolute;
-            left: 0.3rem;
-            top: -1.7rem;
+            left: 5.3rem;
+            top: -1rem;
             transform: translateX(-6.7rem);
 
             @media(max-width: 768px) {
@@ -391,7 +391,7 @@
     }
 
     .carousel-area {
-        transform: translateX(4rem);
+        transform: translateX(1rem);
 
         @media(max-width: 768px) {
             transform: translateX(0);

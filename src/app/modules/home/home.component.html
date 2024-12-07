@@ -14,7 +14,7 @@
       </div>
     </div>
     <div class="img-area">
-      <img [src]="sloganImage || '../../../../../assets/images/apply-img.png'" alt="Slogan Image"
+      <img [src]="sloganImage" alt="Slogan Image"
         class="main-img img-fluid">
     </div>
   </div>
@@ -82,7 +82,7 @@
     <div class="row">
       <div class="col-md-3">
         <div class="position-relative images-area">
-          <img [src]="aboutSloganImage || '../../../../../assets/images/apply-img.png'" alt="About Slogan"
+          <img [src]="aboutSloganImage" alt="About Slogan"
             class="main-img img-fluid">
           <!-- <div><img src="../../../../assets/images/about-img.png" class="about-img img-fluid" /></div> -->
           <!-- <div class="vertical-text">
@@ -140,7 +140,7 @@
     </div>
     <!-- Button -->
     <div class="text-center">
-      <button type="submit" class="btn main-btn" routerLink="/diplomas">كل الكورسات</button>
+      <button type="submit" class="btn main-btn" routerLink="/diplomas">كل الدبلومات التدريبية</button>
     </div>
   </div>
 </section>
@@ -160,7 +160,24 @@
       </div>
     </div>
   </div>
+
   <div class="carousel-area pb-lg-5">
+    <owl-carousel-o [options]="customOptions">
+     <ng-template carouselSlide>
+      <img src="../../../assets/images/Artboard 45@3x-100.jpg" alt="gallery-image">
+     </ng-template>
+     <ng-template carouselSlide>
+      <img src="../../../assets/images/Artboard 44@3x-100.jpg" alt="gallery-image">
+     </ng-template>
+     <ng-template carouselSlide>
+      <img src="../../../assets/images/Artboard 41@3x-100.jpg" alt="gallery-image">
+     </ng-template>
+     <ng-template carouselSlide>
+      <img src="../../../assets/images/Artboard 42@3x-100.jpg" alt="gallery-image">
+     </ng-template>
+    </owl-carousel-o>
+   </div>
+  <!-- <div class="carousel-area pb-lg-5">
     <owl-carousel-o [options]="customOptions">
       <ng-template carouselSlide *ngFor="let post of instagramPosts">
         <a [href]="post.permalink" target="_blank">
@@ -170,7 +187,7 @@
         </a>
       </ng-template>
     </owl-carousel-o>
-  </div>
+  </div> -->
 </section>
 
 
@@ -180,7 +197,7 @@
       <div class="col-md-8">
         <div class="top-spacing">
           <h4 class="text-uppercase mb-3 side-title"><span class="color-secondary">كن أول</span> من يعرف </h4>
-          <p class="text-default mb-3 mb-lg-5">كن أول من يعرف اطلع علي أحدث أخبار معهد الريادة سجل بريدك الإلكتروني الآن ليصلك كل جديد عن البرامج التدريبية، العروض المميزة، وكل جديد يساعدك على تطوير مهاراتك وبناء مستقبلك .</p>
+          <p class="text-default mb-3 mb-lg-5">كن أول من يعرف اطلع علي أحدث أخبار معهد الريادة سجل بريدك الإلكتروني الآن ليصلك كل جديد عن البرامج التدريبية و العروض المميزة لتساعدك على تطوير مهاراتك وبناء مستقبلك .</p>
         </div>
         <form>
           <div class="input-area">
@@ -190,7 +207,7 @@
         </form>
       </div>
       <div class="col-md-4 member-img-area">
-        <img src="../../../../../assets/images/member-img.png" alt="" class="img-fluid member-img">
+        <img src="../../../../../assets/images/member-img.png" alt="member-img" class="img-fluid member-img">
       </div>
     </div>
   </div>

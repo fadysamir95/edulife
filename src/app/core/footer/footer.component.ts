@@ -16,7 +16,7 @@ export class FooterComponent implements OnInit {
     pullDrag: true,
     dots: false,
     navSpeed: 700,
-    margin: 20,
+    margin: 50,
     navText: ['', ''],
     rtl: true,
     autoplay: true,
@@ -34,6 +34,9 @@ export class FooterComponent implements OnInit {
       },
       940: {
         items: 6
+      },
+      1110: {
+        items: 8
       }
     },
     nav: false

@@ -18,7 +18,7 @@
     </div>
    </div>
   </div> -->
-  <div class="grid">
+  <div class="grid mt-5">
     <div *ngFor="let article of articles" class="image-container">
       <a [routerLink]="['/articles', article.slug]">
         <img [src]="article.file" [alt]="article.name" class="img-fluid member-img">

@@ -50,7 +50,7 @@ export class HomeComponent implements OnInit {
   ngOnInit(): void {
     this.getSettingsData()
     this.getBestSellers()
-    this.getInstagramFeeds()
+    // this.getInstagramFeeds()
   }
 
   getSettingsData() {
@@ -78,17 +78,17 @@ export class HomeComponent implements OnInit {
   }
 
 
-  // New: Fetch Instagram feeds
-  getInstagramFeeds(): void {
-    const accessToken = this.storageService.getItem('access_token');
-    this.settingsService.getInstagramFeeds(accessToken).subscribe({
-      next: (posts) => {
-        this.instagramPosts = posts;
-        console.log('Instagram Posts:', this.instagramPosts);
-      },
-      error: (err) => console.error('Error fetching Instagram posts:', err),
-    });
-  }
+  // // New: Fetch Instagram feeds
+  // getInstagramFeeds(): void {
+  //   const accessToken = this.storageService.getItem('access_token');
+  //   this.settingsService.getInstagramFeeds(accessToken).subscribe({
+  //     next: (posts) => {
+  //       this.instagramPosts = posts;
+  //       console.log('Instagram Posts:', this.instagramPosts);
+  //     },
+  //     error: (err) => console.error('Error fetching Instagram posts:', err),
+  //   });
+  // }
   
   
   
