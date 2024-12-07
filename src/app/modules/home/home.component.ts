@@ -60,16 +60,13 @@ export class HomeComponent implements OnInit {
       const adjustedBaseUrl = this.baseUrl.replace('/api', '');
       this.aboutSloganImage = adjustedBaseUrl + this.settingsInfo.about_image
       this.sloganImage = adjustedBaseUrl + this.settingsInfo.slogan_image
-      console.log(response);
     });
   }
 
   getBestSellers(): void {
     this.settingsService.getBestSellers('ar').subscribe({
       next: (response) => {
-        console.log('Full API response:', response);
         this.bestSellers = response.data;
-        console.log('Best Sellers data:', this.bestSellers);
       },
       error: (error) => {
         console.error('Error fetching best sellers:', error);

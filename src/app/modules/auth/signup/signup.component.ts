@@ -4,6 +4,7 @@ import { AuthenticationService } from '../../../shared/services/authentication.s
 import { StorageService } from '../../../shared/services/storage.service';
 import { SettingsService } from '../../../shared/services/riyada-setting.service';
 import { NgIf, NgFor } from '@angular/common';
+import { NotificationService } from '../../../shared/services/notification.service';
 
 @Component({
   selector: 'app-signup',
@@ -20,6 +21,7 @@ export class SignupComponent implements OnInit {
   authService = inject(AuthenticationService);
   storageService = inject(StorageService);
   settingsService = inject(SettingsService);
+  notificationService = inject(NotificationService)
 
   signupForm: FormGroup = this.fb.group({
     name: ['', [Validators.required]],
@@ -45,7 +47,7 @@ export class SignupComponent implements OnInit {
     if (this.signupForm.valid) {
       this.authService.register(this.signupForm.value).subscribe({
         next: (response) => {
-          console.log('Registration successful', response);
+          this.notificationService.showSuccess('تهانينا , تم تسجيل حسابك بنجاح')
           this.storageService.setItem('access_token', response?.data.access_token);
           this.storageService.setItem('user_name', response?.data.name);
           this.userRegistered.emit(response?.data.name);
@@ -64,7 +66,6 @@ export class SignupComponent implements OnInit {
     this.settingsService.getCountries('ar').subscribe({
       next: (countries) => {
         this.countries = countries;
-        console.log('Countries loaded:', countries);
       },
       error: (error) => {
         console.error('Failed to load countries:', error);
@@ -89,7 +90,6 @@ export class SignupComponent implements OnInit {
     this.settingsService.getCities({ country_id: countryId, lang: 'ar' }).subscribe({
       next: (cities) => {
         this.cities = cities;
-        console.log('Cities loaded for country_id:', countryId, cities);
       },
       error: (error) => {
         console.error('Failed to load cities:', error);

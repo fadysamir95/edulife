@@ -16,7 +16,7 @@ export class FooterComponent implements OnInit {
     pullDrag: true,
     dots: false,
     navSpeed: 700,
-    margin: 50,
+    margin: 50, // Increase the gap between items
     navText: ['', ''],
     rtl: true,
     autoplay: true,
@@ -24,23 +24,25 @@ export class FooterComponent implements OnInit {
     autoplayHoverPause: true,
     responsive: {
       0: {
-        items: 1
+        items: 5 // Always show 5 items
       },
       400: {
-        items: 2
+        items: 5 // Always show 5 items
       },
       740: {
-        items: 4
+        items: 5 // Always show 5 items
       },
       940: {
-        items: 6
+        items: 5 // Always show 5 items
       },
       1110: {
-        items: 8
+        items: 5 // Always show 5 items
       }
     },
     nav: false
-  }
+  };
+  
+  
   settingsInfo: any;
 
 

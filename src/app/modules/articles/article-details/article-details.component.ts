@@ -23,7 +23,6 @@ export class ArticleDetailsComponent implements OnInit {
     this.articlesService.getArticleBySlug(slug, 'en').subscribe({
       next: (response) => {
         this.article = response.data;
-        console.log('Article details:', this.article);
       },
       error: (error) => {
         console.error('Error fetching article details:', error);

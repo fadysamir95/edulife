@@ -22,7 +22,6 @@ export class ArticlesComponent implements OnInit {
     this.articlesService.getAllArticles('en').subscribe({
       next: (response) => {
         this.articles = response.data;
-        console.log('Fetched articles:', this.articles);
       },
       error: (error) => {
         console.error('Error fetching articles:', error);
@@ -34,7 +33,6 @@ export class ArticlesComponent implements OnInit {
     this.articlesService.getArticleBySlug(slug, 'ar').subscribe({
       next: (response) => {
         this.article = response.data;
-        console.log('Article details:', this.article);
       },
       error: (error) => {
         console.error('Error fetching article details:', error);

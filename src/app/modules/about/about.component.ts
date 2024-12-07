@@ -30,7 +30,6 @@ export class AboutComponent implements OnInit {
       const adjustedBaseUrl = this.baseUrl.replace('/api', '');
       this.aboutSloganImage = adjustedBaseUrl + this.settingsInfo.about_slogan_image
       this.aboutImage = adjustedBaseUrl + this.settingsInfo.about_image
-      console.log(response);
     });
   }
 

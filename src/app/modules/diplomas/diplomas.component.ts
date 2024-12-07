@@ -52,7 +52,6 @@ export class DiplomasComponent implements OnInit {
   getCourses(): void {
     this.coursesService.getAllCourses('ar').subscribe({
       next: (response) => {
-        console.log(response, 'the data')
         this.courses = response.data;
         if (this.courses.length > 0) {
           this.fetchCourseDetails(this.courses[0].id);
@@ -68,7 +67,6 @@ export class DiplomasComponent implements OnInit {
   fetchCourseDetails(id: number): void {
     this.coursesService.getCoursesById(id, 'ar').subscribe({
       next: (response) => {
-        console.log(response, 'the selected data')
         this.selectedCourseDetails = response.data[0];
         this.sanitizeShortDescription(); // Sanitize the HTML content
 

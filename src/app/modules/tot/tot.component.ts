@@ -52,7 +52,6 @@ export class TotComponent implements OnInit {
     this.coursesService.fetchDiplomaDetails(slug).subscribe({
       next: (response) => {
 
-        console.log('Diploma details:', response);
         this.diplomaDetails = response.data;
 
         this.sanitizeDescription()
@@ -87,7 +86,6 @@ export class TotComponent implements OnInit {
   }
 
   handleUserRegistered(userName: string): void {
-    console.log(`User registered: ${userName}`);
     this.isUserLoggedIn = true;
     this.closePopups();
   }
@@ -130,7 +128,6 @@ submitSubscriptionForm(): void {
     .subscribe({
       next: (response) => {
         this.notificationService.showSuccess('تم تسجيلك في الدبلوم بنجاح', 'تهانينا')
-        console.log('Subscription successful:', response);
         this.closeSubscriptionPopup();
       },
       error: (error) => {
