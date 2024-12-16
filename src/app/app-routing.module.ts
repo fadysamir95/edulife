@@ -10,19 +10,23 @@ const routes: Routes = [
   {
     path: 'home',
     loadChildren: () => import('./modules/home/home.module').then(m => m.HomeModule),
+    title: 'Home'
   },
   {
     path: 'diplomas',
     loadChildren: () => import('./modules/diplomas/diplomas.module').then(m => m.DiplomasModule),
+    title: 'Diplomas'
   },
 
   {
     path: 'articles',
     loadChildren: () => import('./modules/articles/articles.module').then(m => m.ArticlesModule),
+    title: 'Articles'
   },
   {
     path: 'about',
     loadChildren: () => import('./modules/about/about.module').then(m => m.AboutModule),
+    title: 'About US'
   },
 ];
 
@@ -31,6 +35,6 @@ const routes: Routes = [
     RouterModule.forRoot(routes, {
       scrollPositionRestoration: 'enabled',
     }),
-  ],  exports: [RouterModule],
+  ], exports: [RouterModule],
 })
-export class AppRoutingModule {}
+export class AppRoutingModule { }
