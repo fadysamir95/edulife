@@ -41,8 +41,8 @@ export class FooterComponent implements OnInit {
     },
     nav: false
   };
-  
-  
+
+
   settingsInfo: any;
 
 

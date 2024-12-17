@@ -18,7 +18,7 @@ export class ErrorInterceptor implements HttpInterceptor {
     private notificationService: NotificationService,
     private spinnerService: SpinnerService,
     private storageService: StorageService
-  ) {}
+  ) { }
 
   intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
     // Show the spinner at the start of the request
@@ -42,10 +42,10 @@ export class ErrorInterceptor implements HttpInterceptor {
         console.error('HTTP Error:', error); // Log for debugging
 
         if (error.status === 0) {
-          this.notificationService.showError(
-            'Network error occurred. Please check your connection and try again.'
-          );
-      
+          // this.notificationService.showError(
+          //   'Network error occurred. Please check your connection and try again.'
+          // );
+
         } else {
           const errorMessage = this.getErrorMessage(error);
           this.notificationService.showError(errorMessage);
