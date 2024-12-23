@@ -67,9 +67,7 @@ export class DiplomasComponent implements OnInit {
   fetchCourseDetails(id: number): void {
     this.coursesService.getCoursesById(id, 'ar').subscribe({
       next: (response) => {
-        this.selectedCourseDetails = response.data[0];
-        this.sanitizeShortDescription(); // Sanitize the HTML content
-
+        this.selectedCourseDetails = response.data; // Assign all related subcourses
       },
       error: (error) => {
         console.error('Error fetching course details:', error);
@@ -91,5 +89,5 @@ export class DiplomasComponent implements OnInit {
   navigateToDetails(slug: string): void {
     this.router.navigate(['/diplomas', slug]); // Navigate to diplomas/:slug
   }
-  
+
 }
