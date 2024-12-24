@@ -12,19 +12,12 @@ const routes: Routes = [
   },
   {
     path: ':slug',
-    component: ArticleDetailsComponent
+    component: ArticleDetailsComponent,
   },
 ];
 
 @NgModule({
-  declarations: [
-    ArticlesComponent,
-    ArticleDetailsComponent,
-  ],
-  imports: [
-    CommonModule,
-    SharedModule,
-    RouterModule.forChild(routes),
-  ],
+  declarations: [ArticlesComponent, ArticleDetailsComponent],
+  imports: [CommonModule, SharedModule, RouterModule.forChild(routes)],
 })
 export class ArticlesModule {}

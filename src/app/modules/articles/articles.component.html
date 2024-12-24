@@ -1,63 +1,84 @@
 <app-header></app-header>
+
 <section class="inner-banner">
   <div class="container d-flex justify-content-center flex-wrap">
-      <h1 class="mb-4 w-100 text-center">المقالات</h1>
-      <div class="pb-4">
-      </div>
+    <h1 class="mb-4 w-100 text-center">المقالات</h1>
+    <div class="pb-4"></div>
   </div>
 </section>
-<div class="articles">
- <div class="container">
-  <div class="row">
-   <!-- <div class="col-md-12">
-    <div class="top-spacing">
-     <h4 class="text-uppercase mb-3 side-title">معرض الصور</h4>
-     <p class="text-default mb-3 mb-lg-5 w-75">لكن لا بد أن أوضح لك أن كل هذه الأفكار المغلوطة حول استنكار النشوة وتمجيد
-      الألم نشأت بالفعل، وسأعرض لك التفاصيل لتكتشف حقيقة وأساس تلك السعادة البشرية، فلا أحد يرفض أو يكره أو يتجنب الشعور
-      بالسعادة، ولكن بفضل هؤلاء الأشخاص الذين لا يدركون بأن السعادة لا بد أن نستشعرها بصورة أكثر عقلانية .</p>
-    </div>
-   </div>
-  </div> -->
-  <div class="grid mt-5">
-    <div *ngFor="let article of articles" class="image-container">
-      <a [routerLink]="['/articles', article.slug]">
-        <img [src]="article.file" [alt]="article.name" class="img-fluid member-img">
-        <div class="caption">
-          <div [innerHTML]="article.short_description"></div>
-        </div>
-      </a>
-    </div>
-  </div>
-  
-  
- </div>
-</div>
 
- <section class="member mt-5">
+<div class="articles">
   <div class="container">
-   <div class="row">
-    <div class="col-md-8">
-     <div class="top-spacing">
-      <h4 class="text-uppercase mb-3 side-title"><span class="color-secondary">أصبح عضوآ</span> لتحقق أهدافك</h4>
-      <p class="text-default mb-3 mb-lg-5">لكن لا بد أن أوضح لك أن كل هذه الأفكار المغلوطة حول استنكار النشوة وتمجيد
-       الألم نشأت بالفعل، وسأعرض لك التفاصيل لتكتشف حقيقة وأساس تلك السعادة البشرية، فلا أحد يرفض أو يكره أو يتجنب الشعور
-       بالسعادة، ولكن بفضل هؤلاء الأشخاص الذين لا يدركون بأن السعادة لا بد أن نستشعرها بصورة أكثر عقلانية ومنطقية فيعرضهم
-       هذا لمواجهة الظروف الأليمة.</p>
-     </div>
-     <form>
-      <div class="input-area">
-       <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="البريد الألكترونى">
+    <div class="row">
+      <div class="grid mt-5">
+        <div *ngFor="let article of articles" class="image-container">
+          <a
+            [routerLink]="['/articles', article.slug]"
+            (click)="onArticleClick(article.name)"
+          >
+            <img
+              [src]="article.file"
+              [alt]="article.name || 'Article Image'"
+              class="img-fluid member-img"
+            />
+            <div class="caption">
+              <div [innerHTML]="article.short_description"></div>
+            </div>
+          </a>
+        </div>
       </div>
-      <button type="submit" class="btn main-btn">إرسال</button>
-     </form>
     </div>
-    <div class="col-md-4 member-img-area">
-     <img src="../../assets/images/member-img.png" alt="" class="img-fluid member-img">
+  </div>
+
+  <section class="member mt-5">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-8">
+          <div class="top-spacing">
+            <h4 class="text-uppercase mb-3 side-title">
+              <span class="color-secondary">أصبح عضوآ</span> لتحقق أهدافك
+            </h4>
+            <p class="text-default mb-3 mb-lg-5">
+              لكن لا بد أن أوضح لك أن كل هذه الأفكار المغلوطة حول استنكار النشوة
+              وتمجيد الألم نشأت بالفعل، وسأعرض لك التفاصيل لتكتشف حقيقة وأساس
+              تلك السعادة البشرية، فلا أحد يرفض أو يكره أو يتجنب الشعور
+              بالسعادة، ولكن بفضل هؤلاء الأشخاص الذين لا يدركون بأن السعادة لا
+              بد أن نستشعرها بصورة أكثر عقلانية ومنطقية فيعرضهم هذا لمواجهة
+              الظروف الأليمة.
+            </p>
+          </div>
+          <form (submit)="onNewsletterSubmit($event, emailInput.value)">
+            <div class="input-area">
+              <input
+                #emailInput
+                type="email"
+                class="form-control"
+                id="exampleFormControlInput1"
+                placeholder="البريد الألكترونى"
+              />
+            </div>
+            <button
+              type="button"
+              class="btn main-btn"
+              (click)="onNewsletterSubmit($event, emailInput.value)"
+            >
+              إرسال
+            </button>
+          </form>
+        </div>
+        <div class="col-md-4 member-img-area">
+          <img
+            src="../../assets/images/member-img.png"
+            alt="Member image"
+            class="img-fluid member-img"
+          />
+        </div>
+      </div>
     </div>
-   </div>
-  </div>
-  <div class="word-bg">
-    <h2 class="mb-lg-5">الريادة</h2>
-  </div>
- </section>
- <app-footer id="footer"></app-footer>
+    <div class="word-bg">
+      <h2 class="mb-lg-5">الريادة</h2>
+    </div>
+  </section>
+
+  <app-footer id="footer"></app-footer>
+</div>

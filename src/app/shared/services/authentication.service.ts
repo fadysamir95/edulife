@@ -19,14 +19,12 @@ export class AuthenticationService {
     return this.http.post(`${this.baseUrl}login`, credentials);
   }
 
-
-
-   /**
+  /**
    * Sends a registration request to the server
    * @param userDetails - The user's registration data
    * @returns Observable of the HTTP response
    */
-   register(userDetails: {
+  register(userDetails: {
     name: string;
     email: string;
     phone: string;
@@ -36,6 +34,4 @@ export class AuthenticationService {
   }): Observable<any> {
     return this.http.post(`${this.baseUrl}register`, userDetails);
   }
-
-
 }

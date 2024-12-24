@@ -1,65 +1,67 @@
 @keyframes appear {
-    from {
-      top: -100px;
-    }
-    to {
-      top: 0px;
-    }
+  from {
+    top: -100px;
+  }
+  to {
+    top: 0px;
+  }
 }
 .navbar {
-    width: 100%;
-    padding: 1rem 0;
-    background-color: $off-white;
-    position: relative;
-    &.sticky {
-        position: fixed !important;
-        top: -100px;
-        z-index: 1000;
-        background-color: $white;
-        box-shadow: 0 4px 6px -6px #222;
-        top: 0px;
-        animation: appear 0.5s forwards;
+  width: 100%;
+  padding: 1rem 0;
+  background-color: $off-white;
+  position: relative;
+  &.sticky {
+    position: fixed !important;
+    top: -100px;
+    z-index: 1000;
+    background-color: $white;
+    box-shadow: 0 4px 6px -6px #222;
+    top: 0px;
+    animation: appear 0.5s forwards;
+  }
+  &-brand {
+    width: 15%;
+    margin-right: 0;
+    margin-left: 0;
+    .header-logo {
+      max-width: 50%;
+      @media (max-width: 768px) {
+        max-width: 100%;
+      }
     }
-    &-brand {
-        width: 15%;
-        margin-right: 0;
-        margin-left: 0;
-        .header-logo {
-            max-width: 50%;
-            @media(max-width: 768px) {
-                max-width: 100%;
-            }
+  }
+  &-nav {
+    padding-right: 0;
+    .nav-item {
+      .nav-link {
+        padding-left: 1rem;
+        padding-right: 1rem;
+        color: $dark-blue;
+        &:hover,
+        &:active,
+        &:focus {
+          color: $secondary;
         }
+      }
+      .main-btn {
+        margin-right: 1rem;
+      }
     }
-    &-nav {
-        padding-right: 0;
-        .nav-item {
-            .nav-link {
-                padding-left: 1rem;
-                padding-right: 1rem;
-                color: $dark-blue;
-                &:hover, &:active, &:focus {
-                    color: $secondary;
-                }
-            }
-            .main-btn {
-                margin-right: 1rem;
-            }
-        }
-    }
+  }
 }
 .collapse.show {
-    padding-top: 2rem;
+  padding-top: 2rem;
 }
 .navbar-registration {
-    @media(max-width: 768px) {
-        align-items: flex-start !important;
-        margin-top: 2rem;
-        .main-btn {
-            margin-right: 0;
-        }
+  @media (max-width: 768px) {
+    align-items: flex-start !important;
+    margin-top: 2rem;
+    .main-btn {
+      margin-right: 0;
     }
+  }
 }
 .navbar-toggler:focus {
-    box-shadow: none !important;
+  box-shadow: none !important;
 }

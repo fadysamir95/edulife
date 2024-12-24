@@ -1,5 +1,10 @@
 import { Component, EventEmitter, OnInit, Output, inject } from '@angular/core';
-import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
+import {
+  FormBuilder,
+  FormGroup,
+  ReactiveFormsModule,
+  Validators,
+} from '@angular/forms';
 import { AuthenticationService } from '../../../shared/services/authentication.service';
 import { StorageService } from '../../../shared/services/storage.service';
 import { SettingsService } from '../../../shared/services/riyada-setting.service';
@@ -21,7 +26,7 @@ export class SignupComponent implements OnInit {
   authService = inject(AuthenticationService);
   storageService = inject(StorageService);
   settingsService = inject(SettingsService);
-  notificationService = inject(NotificationService)
+  notificationService = inject(NotificationService);
 
   signupForm: FormGroup = this.fb.group({
     name: ['', [Validators.required]],
@@ -47,8 +52,13 @@ export class SignupComponent implements OnInit {
     if (this.signupForm.valid) {
       this.authService.register(this.signupForm.value).subscribe({
         next: (response) => {
-          this.notificationService.showSuccess('تهانينا , تم تسجيل حسابك بنجاح')
-          this.storageService.setItem('access_token', response?.data.access_token);
+          this.notificationService.showSuccess(
+            'تهانينا , تم تسجيل حسابك بنجاح',
+          );
+          this.storageService.setItem(
+            'access_token',
+            response?.data.access_token,
+          );
           this.storageService.setItem('user_name', response?.data.name);
           this.userRegistered.emit(response?.data.name);
           this.closePopup();
@@ -58,7 +68,7 @@ export class SignupComponent implements OnInit {
         },
       });
     } else {
-      console.log('Form is invalid');
+      // console.log('Form is invalid');
     }
   }
 
@@ -85,16 +95,16 @@ export class SignupComponent implements OnInit {
     }
   }
 
-
   loadCities(countryId: number) {
-    this.settingsService.getCities({ country_id: countryId, lang: 'ar' }).subscribe({
-      next: (cities) => {
-        this.cities = cities;
-      },
-      error: (error) => {
-        console.error('Failed to load cities:', error);
-      },
-    });
+    this.settingsService
+      .getCities({ country_id: countryId, lang: 'ar' })
+      .subscribe({
+        next: (cities) => {
+          this.cities = cities;
+        },
+        error: (error) => {
+          console.error('Failed to load cities:', error);
+        },
+      });
   }
 }
-

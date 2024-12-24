@@ -16,21 +16,21 @@ import { RouterModule } from '@angular/router';
     FooterComponent,
     PageInnerBannerComponent,
     JoinNowComponent,
-    ScrollDirective
+    ScrollDirective,
   ],
   imports: [
     CommonModule,
     CarouselModule,
     LoginComponent,
     SignupComponent,
-    RouterModule
+    RouterModule,
   ],
   exports: [
     HeaderComponent,
     FooterComponent,
     PageInnerBannerComponent,
     JoinNowComponent,
-    ScrollDirective
-  ]
+    ScrollDirective,
+  ],
 })
-export class SharedModule { }
+export class SharedModule {}

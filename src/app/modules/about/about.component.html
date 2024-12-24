@@ -7,8 +7,12 @@
       <h3 class="pb-4 color-secondary">والريادة هدفنا</h3>
     </div>
     <div class="img-area">
-      <img [src]="aboutSloganImage" alt="About Slogan"
-        class="main-img img-fluid">
+      <img
+        [src]="aboutSloganImage"
+        alt="About Image"
+        class="main-img img-fluid"
+        (click)="onImageView('About Image')"
+      />
     </div>
   </div>
 </section>
@@ -17,37 +21,44 @@
   <div class="container">
     <div class="mb-5 pb-4">
       <h4 class="text-uppercase mb-4 side-title">عن المعهد</h4>
-      <p>نحن نساعد طلابنا بالمعدات والمعلمين والفصول الدراسية حتى يتمكنوا من تحقيق أهدافهم الجامعية بسهولة. نحن نقدم
-        رعاية حقيقية لكل عضو.</p>
+      <p>
+        نحن نساعد طلابنا بالمعدات والمعلمين والفصول الدراسية حتى يتمكنوا من
+        تحقيق أهدافهم الجامعية بسهولة. نحن نقدم رعاية حقيقية لكل عضو.
+      </p>
     </div>
     <div class="row">
       <div class="col-md-3">
         <div class="position-relative images-area">
-          <img [src]="aboutImage" alt="Slogan Image"
-            class="main-img img-fluid">
-          <!-- <div><img src="../assets/images/about-img.png" class="about-img img-fluid" /></div> -->
-          <!-- <div class="vertical-text">
-      <p class="text-uppercase">الألاف من الطلاب <span class="color-secondary">سعداء</span></p>
-     </div> -->
-          <div><img src="../assets/images/arrow.png" class="arrow" /></div>
+          <img
+            [src]="aboutImage"
+            alt="About Us Image"
+            class="main-img img-fluid"
+            (click)="onImageView('About Us')"
+          />
+          <div>
+            <img
+              src="../assets/images/arrow.png"
+              class="arrow"
+              alt="Arrow Decoration"
+            />
+          </div>
         </div>
-        <!-- <div class="trainees">
-     <div class="images mb-2">
-      <img src="../assets/images/apply-img.png" class="rounded-img" />
-      <img src="../assets/images/apply-img.png" class="rounded-img" />
-      <img src="../assets/images/apply-img.png" class="rounded-img" />
-      <img src="../assets/images/apply-img.png" class="rounded-img" />
-     </div>
-     <p>More than <span class="color-secondary mb-2">1500</span> Trainee</p>
-    </div> -->
       </div>
       <div class="col-md-9">
         <div class="content">
-          <h4 class="text-uppercase mb-3 mt-lg-3"> طريقك نحو <span class="color-secondary">الإحتراف</span></h4>
-          <p class="text-default">{{settingsInfo?.about_us_ar}}
-            <!-- <a class="md-default-link secondary-color text-decoration-underline">تعلم المزيد</a> -->
+          <h4 class="text-uppercase mb-3 mt-lg-3">
+            طريقك نحو <span class="color-secondary">الإحتراف</span>
+          </h4>
+          <p class="text-default">
+            {{ settingsInfo?.about_us_ar }}
+          </p>
           <div class="mt-4 action">
-            <img src="../../assets/images/buzz.png" class="img-fluid buzz" />
+            <img
+              src="../../assets/images/buzz.png"
+              class="img-fluid buzz"
+              alt="Buzz Image"
+              (click)="onImageView('Buzz')"
+            />
           </div>
         </div>
       </div>
@@ -59,32 +70,48 @@
   <div class="container">
     <div class="row">
       <div class="col-md-8 item">
-        <p class="mb-3 color-secondary paragraph-title"> رؤيتنا </p>
-        <p>{{settingsInfo?.vision_ar}}</p>
+        <p class="mb-3 color-secondary paragraph-title">رؤيتنا</p>
+        <p>{{ settingsInfo?.vision_ar }}</p>
       </div>
       <div class="col-md-4 text-center d-xs-none">
-        <img src="assets/images/Artboard 14@4x.png" />
+        <img
+          src="assets/images/Artboard 14@4x.png"
+          alt="Vision Illustration"
+          (click)="onImageView('Vision Illustration 1')"
+        />
       </div>
       <div class="col-md-4 text-center d-xs-none">
-        <img src="assets/images/4.png" />
+        <img
+          src="assets/images/4.png"
+          alt="Vision Illustration 2"
+          (click)="onImageView('Vision Illustration 2')"
+        />
       </div>
       <div class="col-md-8 item">
-        <p class="mb-3 color-secondary paragraph-title"> رسالتنا </p>
-        <p>{{settingsInfo?.staticties_ar}}</p>
+        <p class="mb-3 color-secondary paragraph-title">رسالتنا</p>
+        <p>{{ settingsInfo?.staticties_ar }}</p>
       </div>
       <div class="col-md-8 item">
-        <p class="mb-3 color-secondary paragraph-title"> احصائيتنا </p>
-        <p>{{settingsInfo?.target_ar}}</p>
+        <p class="mb-3 color-secondary paragraph-title">احصائيتنا</p>
+        <p>{{ settingsInfo?.target_ar }}</p>
       </div>
       <div class="col-md-4 text-center d-xs-none">
-        <img src="assets/images/2.png" />
+        <img
+          src="assets/images/2.png"
+          alt="Statistics Illustration"
+          (click)="onImageView('Statistics Illustration')"
+        />
       </div>
       <div class="col-md-4 text-center d-xs-none">
-        <img src="assets/images/Artboard 17@4x.png" />
+        <img
+          src="assets/images/Artboard 17@4x.png"
+          alt="Mission Illustration"
+          (click)="onImageView('Mission Illustration')"
+        />
       </div>
       <div class="col-md-8 item">
-        <p class="mb-3 color-secondary paragraph-title"> ما يميزنا </p>
-        <p>{{settingsInfo?.mision_ar}}</p>
+        <p class="mb-3 color-secondary paragraph-title">ما يميزنا</p>
+        <p>{{ settingsInfo?.mision_ar }}</p>
       </div>
     </div>
   </div>
@@ -95,23 +122,45 @@
     <div class="row">
       <div class="col-md-8">
         <div class="top-spacing">
-          <h4 class="text-uppercase mb-3 side-title"><span class="color-secondary">اشترك في</span> نشرتنا الإخبارية</h4>
-          <p class="text-default mb-3 mb-lg-5">كن أول من يعرف اطلع علي أحدث أخبار معهد الريادة سجل بريدك الإلكتروني الآن ليصلك كل جديد عن البرامج التدريبية، العروض المميزة، وكل جديد يساعدك على تطوير مهاراتك وبناء مستقبلك.</p>
+          <h4 class="text-uppercase mb-3 side-title">
+            <span class="color-secondary">اشترك في</span> نشرتنا الإخبارية
+          </h4>
+          <p class="text-default mb-3 mb-lg-5">
+            كن أول من يعرف اطلع علي أحدث أخبار معهد الريادة سجل بريدك الإلكتروني
+            الآن ليصلك كل جديد عن البرامج التدريبية، العروض المميزة، وكل جديد
+            يساعدك على تطوير مهاراتك وبناء مستقبلك.
+          </p>
         </div>
-        <form>
+        <form (submit)="onNewsletterSubmit($event, emailInput.value)">
           <div class="input-area">
-            <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="البريد الألكترونى">
+            <input
+              #emailInput
+              type="email"
+              class="form-control"
+              id="exampleFormControlInput1"
+              placeholder="البريد الإلكتروني"
+            />
           </div>
-          <button type="submit" class="btn main-btn">إرسال</button>
+          <button
+            type="button"
+            class="btn main-btn"
+            (click)="onNewsletterSubmit($event, emailInput.value)"
+          >
+            إرسال
+          </button>
         </form>
       </div>
       <div class="col-md-4 member-img-area">
-        <img src="../../assets/images/member-img.png" alt="member-img" class="img-fluid member-img">
+        <img
+          src="../../assets/images/member-img.png"
+          alt="Member Image"
+          class="img-fluid member-img"
+          (click)="onImageView('Member Image')"
+        />
       </div>
     </div>
   </div>
   <div class="word-bg">
-    <!-- <img src="../../assets/images/edulife-word.png" alt="EDULIFE"> -->
     <h2 class="mb-lg-5">الريادة</h2>
   </div>
 </section>

@@ -17,10 +17,13 @@ export class ErrorInterceptor implements HttpInterceptor {
   constructor(
     private notificationService: NotificationService,
     private spinnerService: SpinnerService,
-    private storageService: StorageService
-  ) { }
+    private storageService: StorageService,
+  ) {}
 
-  intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
+  intercept(
+    req: HttpRequest<any>,
+    next: HttpHandler,
+  ): Observable<HttpEvent<any>> {
     // Show the spinner at the start of the request
     this.spinnerService.show();
 
@@ -45,18 +48,19 @@ export class ErrorInterceptor implements HttpInterceptor {
           // this.notificationService.showError(
           //   'Network error occurred. Please check your connection and try again.'
           // );
-
         } else {
           const errorMessage = this.getErrorMessage(error);
           this.notificationService.showError(errorMessage);
         }
 
-        return throwError(() => new Error(error.message || 'An unknown error occurred.'));
+        return throwError(
+          () => new Error(error.message || 'An unknown error occurred.'),
+        );
       }),
       finalize(() => {
         // Hide the spinner after the request completes (success or error)
         this.spinnerService.hide();
-      })
+      }),
     );
   }
 
@@ -75,7 +79,9 @@ export class ErrorInterceptor implements HttpInterceptor {
       case 503:
         return 'Service Unavailable: The server is currently unavailable. Please try again later.';
       default:
-        return error.message || 'An unexpected error occurred. Please try again.';
+        return (
+          error.message || 'An unexpected error occurred. Please try again.'
+        );
     }
   }
 }

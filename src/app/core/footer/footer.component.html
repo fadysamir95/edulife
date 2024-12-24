@@ -11,8 +11,13 @@
             <a
               href="/"
               class="d-flex align-items-center partner justify-content-center"
+              (click)="onPartnerLogoClick('Partner 1')"
             >
-              <img src="assets/images/IMG_7551.PNG" class="img-fluid" />
+              <img
+                src="assets/images/IMG_7551.PNG"
+                class="img-fluid"
+                alt="partner-logo-1"
+              />
             </a>
           </div>
         </ng-template>
@@ -21,8 +26,13 @@
             <a
               href="/"
               class="d-flex align-items-center partner justify-content-center"
+              (click)="onPartnerLogoClick('Partner 2')"
             >
-              <img src="assets/images/IMG_7552.PNG" class="img-fluid" />
+              <img
+                src="assets/images/IMG_7552.PNG"
+                class="img-fluid"
+                alt="partner-logo-2"
+              />
             </a>
           </div>
         </ng-template>
@@ -31,8 +41,13 @@
             <a
               href="/"
               class="d-flex align-items-center partner justify-content-center"
+              (click)="onPartnerLogoClick('Partner 3')"
             >
-              <img src="assets/images/IMG_7553.PNG" class="img-fluid" />
+              <img
+                src="assets/images/IMG_7553.PNG"
+                class="img-fluid"
+                alt="partner-logo-3"
+              />
             </a>
           </div>
         </ng-template>
@@ -41,84 +56,31 @@
             <a
               href="/"
               class="d-flex align-items-center partner justify-content-center"
+              (click)="onPartnerLogoClick('Partner 4')"
             >
-              <img src="assets/images/IMG_7554.PNG" class="img-fluid" />
+              <img
+                src="assets/images/IMG_7554.PNG"
+                class="img-fluid"
+                alt="partner-logo-4"
+              />
             </a>
           </div>
         </ng-template>
-        <ng-template carouselSlide>
-          <div class="partner-logo">
-            <a
-              href="/"
-              class="d-flex align-items-center partner justify-content-center"
-            >
-              <img src="assets/images/IMG_7555.PNG" class="img-fluid" />
-            </a>
-          </div>
-        </ng-template>
-        <ng-template carouselSlide>
-          <div class="partner-logo">
-            <a
-              href="/"
-              class="d-flex align-items-center partner justify-content-center"
-            >
-              <img src="assets/images/IMG_7556.PNG" class="img-fluid" />
-            </a>
-          </div>
-        </ng-template>
-        <ng-template carouselSlide>
-          <div class="partner-logo">
-            <a
-              href="/"
-              class="d-flex align-items-center partner justify-content-center"
-            >
-              <img src="assets/images/IMG_7557.PNG" class="img-fluid" />
-            </a>
-          </div>
-        </ng-template>
-        <ng-template carouselSlide>
-          <div class="partner-logo">
-            <a
-              href="/"
-              class="d-flex align-items-center partner justify-content-center"
-            >
-              <img src="assets/images/IMG_7558.PNG" class="img-fluid" />
-            </a>
-          </div>
-        </ng-template>
-
-        <ng-template carouselSlide>
-          <div class="partner-logo">
-            <a
-              href="/"
-              class="d-flex align-items-center partner justify-content-center"
-            >
-              <img src="assets/images/IMG_7559.PNG" class="img-fluid" />
-            </a>
-          </div>
-        </ng-template>
-
-        <ng-template carouselSlide>
-          <div class="partner-logo">
-            <a
-              href="/"
-              class="d-flex align-items-center partner justify-content-center"
-            >
-              <img src="assets/images/IMG_7560.PNG" class="img-fluid" />
-            </a>
-          </div>
-        </ng-template>
+        <!-- Add more partners as needed -->
       </owl-carousel-o>
     </div>
   </div>
+
   <div class="container">
     <div class="row pb-4">
+      <!-- About Section -->
       <div class="col-md-3 mb-3">
         <a
           href="/"
           class="d-flex align-items-center mb-4 link-dark text-decoration-none"
         >
           <img
+            alt="partner-logo-5"
             src="assets/images/alriyada-institute-logo.png"
             class="img-fluid footer-logo"
           />
@@ -130,68 +92,66 @@
         </p>
         <p>© جميع الحقوق محفوظة لمعهد الريادة</p>
       </div>
+
+      <!-- Important Links -->
       <div class="col-md-3 mb-3">
         <h5 class="mb-4">روابط هامة</h5>
         <ul class="nav flex-column p-0">
           <li class="nav-item mb-3">
-            <a routerLink="/about" class="nav-link p-0 text-muted">عن المعهد</a>
+            <a
+              routerLink="/about"
+              class="nav-link p-0 text-muted"
+              (click)="onImportantLinkClick('About Us')"
+              >عن المعهد</a
+            >
           </li>
           <li class="nav-item mb-3">
-            <a routerLink="/diplomas" class="nav-link p-0 text-muted">
-              دبلوماتنا التدريبية
-            </a>
+            <a
+              routerLink="/diplomas"
+              class="nav-link p-0 text-muted"
+              (click)="onImportantLinkClick('Diplomas')"
+              >دبلوماتنا التدريبية</a
+            >
           </li>
           <li class="nav-item mb-3">
-            <a routerLink="/articles" class="nav-link p-0 text-muted"
+            <a
+              routerLink="/articles"
+              class="nav-link p-0 text-muted"
+              (click)="onImportantLinkClick('Articles')"
               >المقالات</a
             >
           </li>
-          <!-- <li class="nav-item mb-3"><a href="#" class="nav-link p-0 text-muted">دراسات</a></li> -->
         </ul>
       </div>
 
+      <!-- Contact Section -->
       <div class="col-md-3 mb-3">
         <h5 class="mb-4">اتصل بنا</h5>
         <ul class="nav flex-column p-0">
           <li class="nav-item mb-3">
             <a
               [href]="'tel:' + settingsInfo?.phone"
-              target="_blank"
               class="nav-link p-0 text-muted"
+              (click)="onContactLinkClick('Phone', settingsInfo?.phone)"
             >
               <i class="fa fa-phone"></i> {{ settingsInfo?.phone }}
             </a>
           </li>
-
           <li class="nav-item mb-3">
             <a
               href="mailto:info@alriyada-edu.ae"
-              target="_blank"
               class="nav-link p-0 text-muted"
+              (click)="onContactLinkClick('Email', 'info@alriyada-edu.ae')"
             >
               <i class="fa fa-envelope"></i> {{ settingsInfo?.email }}
             </a>
           </li>
           <li class="nav-item mb-3">
             <a
-              [href]="'tel:' + settingsInfo?.name_ar"
-              target="_blank"
-              class="nav-link p-0 text-muted"
-            >
-              <img
-                src="assets/images/Landline.png"
-                alt="landline-img"
-                style="width: 1rem"
-              />
-              {{ settingsInfo?.name_ar }}
-            </a>
-          </li>
-
-          <li class="nav-item mb-3">
-            <a
               href="https://maps.app.goo.gl/amEAnkfHgpY4n3pe8?g_st=ic"
               target="_blank"
               class="nav-link p-0 text-muted"
+              (click)="onContactLinkClick('Location', settingsInfo?.address_ar)"
             >
               <i class="fa fa-map-marker"></i> {{ settingsInfo?.address_ar }}
             </a>
@@ -199,26 +159,49 @@
         </ul>
       </div>
 
+      <!-- Social Media Links -->
       <div class="col-md-3 mb-3">
         <div class="social-icons">
-          <a href="{{ settingsInfo?.facebook }}"
-            ><img src="assets/images/facebook.png" alt="facebook-img"
-          /></a>
-          <a href="{{ settingsInfo?.twitter }}"
-            ><img src="assets/images/twitter.png" alt="twitter-img"
-          /></a>
-          <a href="{{ settingsInfo?.snapchat }}"
-            ><img src="assets/images/social.png" alt="social-img"
-          /></a>
-          <a href="{{ settingsInfo?.instagram }}"
-            ><img src="assets/images/instagram.png" alt="instagram-img"
-          /></a>
-          <a href="https://www.linkedin.com/company/alriyadainstitute/"
-            ><img src="assets/images/linkedin.png" alt="linkedin-img"
-          /></a>
-          <a href="https://www.tiktok.com/@alriyada_institute"
-            ><img src="assets/images/tik-tok.png" alt="tik-tok-img"
-          /></a>
+          <a
+            href="{{ settingsInfo?.facebook }}"
+            (click)="onSocialMediaClick('Facebook')"
+          >
+            <img
+              src="assets/images/facebook.png"
+              alt="facebook-img"
+              alt="partner-logo-6"
+            />
+          </a>
+          <a
+            href="{{ settingsInfo?.twitter }}"
+            (click)="onSocialMediaClick('Twitter')"
+          >
+            <img
+              src="assets/images/twitter.png"
+              alt="twitter-img"
+              alt="partner-logo-7"
+            />
+          </a>
+          <a
+            href="{{ settingsInfo?.instagram }}"
+            (click)="onSocialMediaClick('Instagram')"
+          >
+            <img
+              src="assets/images/instagram.png"
+              alt="instagram-img"
+              alt="partner-logo-8"
+            />
+          </a>
+          <a
+            href="https://www.linkedin.com/company/alriyadainstitute/"
+            (click)="onSocialMediaClick('LinkedIn')"
+          >
+            <img
+              src="assets/images/linkedin.png"
+              alt="linkedin-img"
+              alt="partner-logo-9"
+            />
+          </a>
         </div>
       </div>
     </div>

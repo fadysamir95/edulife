@@ -8,14 +8,17 @@ import { SettingsService } from './shared/services/riyada-setting.service';
 export class AppComponent implements OnInit {
   settings$ = this.settingsService.settings$;
 
-  constructor(private settingsService: SettingsService, private renderer: Renderer2) { }
+  constructor(
+    private settingsService: SettingsService,
+    private renderer: Renderer2,
+  ) { }
 
   ngOnInit(): void {
-    this.settingsService.getSettings().subscribe((data: Record<string, any>) => {
-      this.settingsService.setDataSettings(data);
-      // console.log('data', data['aff
-
-    });
+    this.settingsService
+      .getSettings()
+      .subscribe((data: Record<string, any>) => {
+        this.settingsService.setDataSettings(data);
+      });
   }
 
   // private addGoogleAnalyticsScript(scriptContent: string): void {

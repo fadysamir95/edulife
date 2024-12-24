@@ -12,6 +12,7 @@ const routes: Routes = [
   {
     path: '',
     component: DiplomasComponent, // Main diplomas page
+    title: 'Diplomas',
   },
   {
     path: ':slug',
@@ -30,7 +31,7 @@ const routes: Routes = [
     FormsModule,
     RouterModule.forChild(routes),
     CarouselModule,
-    SignupComponent
+    SignupComponent,
   ],
 })
 export class DiplomasModule {}

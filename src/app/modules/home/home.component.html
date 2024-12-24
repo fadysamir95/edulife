@@ -9,13 +9,25 @@
         {{ settingsInfo.about_slogan_ar }}
       </p>
       <div class="pb-4 links">
-        <a routerLink="/diplomas" class="btn main-btn">انضم الأن !</a>
+        <a
+          routerLink="/diplomas"
+          class="btn main-btn"
+          (click)="gtmService.sendGTMEvent('join_now_click', {})"
+        >
+          انضم الأن !
+        </a>
         <!-- <a routerLink="/about" class="text-decoration-underline link me-5">تعلم المزيد</a> -->
       </div>
     </div>
     <div class="img-area">
-      <img [src]="sloganImage" alt="Slogan Image"
-        class="main-img img-fluid">
+      <img
+        [src]="sloganImage"
+        alt="Slogan Image"
+        class="main-img img-fluid"
+        (click)="
+          gtmService.sendGTMEvent('slogan_image_click', { image: sloganImage })
+        "
+      />
     </div>
   </div>
 </section>
@@ -55,7 +67,6 @@
        <div class="item">
         <p>كورسات</p>
        </div>
-
       </div>
      </div>
     </div>
@@ -74,43 +85,63 @@
 <section class="apply top-spacing mb-5">
   <div class="container">
     <div class="mb-5 pb-4">
-      <h4 class="text-uppercase mb-4 side-title"> لماذا نحن !
-      </h4>
-      <p>معهد الريادة العلمي خبرة تتجاوز 9 سنوات في مجال التعليم والتدريب، نجحنا خلالهم في بناء سجل حافل من الإنجازات
-        وتعاونا مع العديد من الجهات الحكومية والخاصة لعقد اكثر من 250 دورة و دبلوم تدريبي.</p>
+      <h4 class="text-uppercase mb-4 side-title">لماذا نحن !</h4>
+      <p>
+        معهد الريادة العلمي خبرة تتجاوز 9 سنوات في مجال التعليم والتدريب، نجحنا
+        خلالهم في بناء سجل حافل من الإنجازات وتعاونا مع العديد من الجهات
+        الحكومية والخاصة لعقد اكثر من 250 دورة و دبلوم تدريبي.
+      </p>
     </div>
     <div class="row">
       <div class="col-md-3">
         <div class="position-relative images-area">
-          <img [src]="aboutSloganImage" alt="About Slogan"
-            class="main-img img-fluid">
+          <img
+            [src]="aboutSloganImage"
+            alt="About Slogan"
+            class="main-img img-fluid"
+            (click)="
+              gtmService.sendGTMEvent('about_image_click', {
+                image: aboutSloganImage
+              })
+            "
+          />
           <!-- <div><img src="../assets/images/about-img.png" class="about-img img-fluid" /></div> -->
           <!-- <div class="vertical-text">
       <p class="text-uppercase">الألاف من الطلاب <span class="color-secondary">سعداء</span></p>
      </div> -->
-          <div><img src="../assets/images/arrow.png" class="arrow" /></div>
+          <div>
+            <img
+              src="../assets/images/arrow.png"
+              class="arrow"
+              alt="Arrow Decoration"
+              (click)="gtmService.sendGTMEvent('arrow_image_click', {})"
+            />
+          </div>
         </div>
-        <!-- <div class="trainees">
-     <div class="images mb-2">
-      <img src="../assets/images/apply-img.png" class="rounded-img" />
-      <img src="../assets/images/apply-img.png" class="rounded-img" />
-      <img src="../assets/images/apply-img.png" class="rounded-img" />
-      <img src="../assets/images/apply-img.png" class="rounded-img" />
-     </div>
-     <p>More than <span class="color-secondary mb-2">1500</span> Trainee</p>
-    </div> -->
       </div>
       <div class="col-md-9">
         <div class="content">
-          <h4 class="text-uppercase mb-3 mt-lg-3"> طريقك نحو <span class="color-secondary">الإحتراف</span></h4>
-          <p class="text-default">{{settingsInfo?.about_us_ar}}
-          </p>
+          <h4 class="text-uppercase mb-3 mt-lg-3">
+            طريقك نحو <span class="color-secondary">الإحتراف</span>
+          </h4>
+          <p class="text-default">{{ settingsInfo?.about_us_ar }}</p>
           <!-- <p class="text-default mt-lg-4 mb-5">لكن لا بد أن أوضح لك أن كل هذه الأفكار المغلوطة حول استنكار النشوة وتمجيد الألم
       نشأت بالفعل، وسأعرض لك التفاصيل لتكتشف حقيقة وأساس تلك السعادة البشرية، فلا أحد يرفض أو يكره أو يتجنب الشعور
       بالسعادة، ولكن بفضل هؤلاء الأشخاص.</p> -->
-          <a class="md-default-link secondary-color text-decoration-underline" routerLink="/about">تعلم المزيد</a>
+          <a
+            class="md-default-link secondary-color text-decoration-underline"
+            routerLink="/about"
+            (click)="gtmService.sendGTMEvent('learn_more_click', {})"
+          >
+            تعلم المزيد
+          </a>
           <div class="mt-4 action">
-            <img src="../../assets/images/buzz.png" class="img-fluid buzz" />
+            <img
+              src="../../assets/images/buzz.png"
+              class="img-fluid buzz"
+              alt="Buzz Image"
+              (click)="gtmService.sendGTMEvent('buzz_image_click', {})"
+            />
           </div>
         </div>
       </div>
@@ -120,27 +151,49 @@
 
 <section class="best-seller top-spacing mb-5">
   <div class="container">
-    <h4 class="text-uppercase mb-5 side-title">الأفضل<span class="color-secondary"> مبيعا</span></h4>
+    <h4 class="text-uppercase mb-5 side-title">
+      الأفضل<span class="color-secondary"> مبيعا</span>
+    </h4>
     <div class="row">
-      <div class="col-md-4 mb-5" *ngFor="let seller of bestSellers">
+      <div
+        class="col-md-4 mb-5"
+        *ngFor="let seller of bestSellers"
+        (click)="onBestSellerClick(seller)"
+      >
         <div class="item">
-          <div class="image" [routerLink]="['/tot', seller.slug]">
-            <img [src]="seller.file" [alt]="seller.name" class="img-fluid" />
+          <div class="image">
+            <img
+              [src]="seller.file"
+              [alt]="seller.name"
+              class="img-fluid"
+              (click)="
+                gtmService.sendGTMEvent('best_seller_image_click', {
+                  name: seller.name
+                })
+              "
+            />
           </div>
           <div class="badge">
             <p class="text-capitalize">الأفضل</p>
             <p class="text-capitalize">مبيعآ</p>
           </div>
         </div>
-        <div class="text-center" [routerLink]="['/tot', seller.slug]">
-          <p class="title">{{seller.name}} </p>
+        <div class="text-center">
+          <p class="title">{{ seller.name }}</p>
           <!-- <a class="anchor-default" href="javascript:void(0);">تعلم المزيد</a>  -->
         </div>
       </div>
     </div>
     <!-- Button -->
     <div class="text-center">
-      <button type="submit" class="btn main-btn" routerLink="/diplomas">كل الدبلومات التدريبية</button>
+      <button
+        type="submit"
+        class="btn main-btn"
+        routerLink="/diplomas"
+        (click)="gtmService.sendGTMEvent('view_all_diplomas', {})"
+      >
+        كل الدبلومات التدريبية
+      </button>
     </div>
   </div>
 </section>
@@ -163,56 +216,98 @@
 
   <div class="carousel-area pb-lg-5">
     <owl-carousel-o [options]="customOptions">
-     <ng-template carouselSlide>
-      <img src="assets/images/Artboard 45@3x-100.jpg" alt="gallery-image">
-     </ng-template>
-     <ng-template carouselSlide>
-      <img src="assets/images/Artboard 44@3x-100.jpg" alt="gallery-image">
-     </ng-template>
-     <ng-template carouselSlide>
-      <img src="assets/images/Artboard 41@3x-100.jpg" alt="gallery-image">
-     </ng-template>
-     <ng-template carouselSlide>
-      <img src="assets/images/Artboard 42@3x-100.jpg" alt="gallery-image">
-     </ng-template>
-    </owl-carousel-o>
-   </div>
-  <!-- <div class="carousel-area pb-lg-5">
-    <owl-carousel-o [options]="customOptions">
-      <ng-template carouselSlide *ngFor="let post of instagramPosts">
-        <a [href]="post.permalink" target="_blank">
-          <img *ngIf="post.media_type === 'IMAGE' || post.media_type === 'CAROUSEL_ALBUM'" [src]="post.media_url"
-            alt="Instagram Image">
-          <video *ngIf="post.media_type === 'VIDEO'" [src]="post.media_url" controls></video>
-        </a>
+      <ng-template carouselSlide>
+        <img
+          src="assets/images/Artboard 45@3x-100.jpg"
+          alt="Gallery Image 1"
+          (click)="
+            gtmService.sendGTMEvent('gallery_image_click', {
+              image: 'Artboard 45'
+            })
+          "
+        />
+      </ng-template>
+      <ng-template carouselSlide>
+        <img
+          src="assets/images/Artboard 44@3x-100.jpg"
+          alt="Gallery Image 2"
+          (click)="
+            gtmService.sendGTMEvent('gallery_image_click', {
+              image: 'Artboard 44'
+            })
+          "
+        />
+      </ng-template>
+      <ng-template carouselSlide>
+        <img
+          src="assets/images/Artboard 41@3x-100.jpg"
+          alt="Gallery Image 3"
+          (click)="
+            gtmService.sendGTMEvent('gallery_image_click', {
+              image: 'Artboard 41'
+            })
+          "
+        />
+      </ng-template>
+      <ng-template carouselSlide>
+        <img
+          src="assets/images/Artboard 42@3x-100.jpg"
+          alt="Gallery Image 4"
+          (click)="
+            gtmService.sendGTMEvent('gallery_image_click', {
+              image: 'Artboard 42'
+            })
+          "
+        />
       </ng-template>
     </owl-carousel-o>
-  </div> -->
+  </div>
 </section>
-
 
 <section class="member">
   <div class="container">
     <div class="row">
       <div class="col-md-8">
         <div class="top-spacing">
-          <h4 class="text-uppercase mb-3 side-title"><span class="color-secondary">كن أول</span> من يعرف </h4>
-          <p class="text-default mb-3 mb-lg-5">كن أول من يعرف اطلع علي أحدث أخبار معهد الريادة سجل بريدك الإلكتروني الآن ليصلك كل جديد عن البرامج التدريبية و العروض المميزة لتساعدك على تطوير مهاراتك وبناء مستقبلك .</p>
+          <h4 class="text-uppercase mb-3 side-title">
+            <span class="color-secondary">كن أول</span> من يعرف
+          </h4>
+          <p class="text-default mb-3 mb-lg-5">
+            كن أول من يعرف اطلع علي أحدث أخبار معهد الريادة سجل بريدك الإلكتروني
+            الآن ليصلك كل جديد عن البرامج التدريبية و العروض المميزة لتساعدك على
+            تطوير مهاراتك وبناء مستقبلك .
+          </p>
         </div>
-        <form>
+        <form (submit)="onNewsletterSubmit($event, emailInput.value)">
           <div class="input-area">
-            <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="البريد الألكترونى">
+            <input
+              #emailInput
+              type="email"
+              class="form-control"
+              id="exampleFormControlInput1"
+              placeholder="البريد الألكترونى"
+            />
           </div>
-          <button type="submit" class="btn main-btn">إرسال</button>
+          <button
+            type="button"
+            class="btn main-btn"
+            (click)="onNewsletterSubmit($event, emailInput.value)"
+          >
+            إرسال
+          </button>
         </form>
       </div>
       <div class="col-md-4 member-img-area">
-        <img src="../../assets/images/member-img.png" alt="member-img" class="img-fluid member-img">
+        <img
+          src="../../assets/images/member-img.png"
+          alt="Newsletter Image"
+          class="img-fluid member-img"
+          (click)="gtmService.sendGTMEvent('newsletter_image_click', {})"
+        />
       </div>
     </div>
   </div>
   <div class="word-bg">
-    <!-- <img src="../../assets/images/edulife-word.png" alt="EDULIFE"> -->
     <h2 class="mb-lg-5">الريادة</h2>
   </div>
 </section>

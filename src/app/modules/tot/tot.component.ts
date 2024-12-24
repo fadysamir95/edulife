@@ -2,7 +2,7 @@ import { Component, inject, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
 import { CoursesService } from '../../shared/services/courses.service';
-import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
+import { DomSanitizer, Meta, SafeHtml, Title } from '@angular/platform-browser';
 import { StorageService } from '../../shared/services/storage.service';
 import { SettingsService } from '../../shared/services/riyada-setting.service';
 import { NotificationService } from '../../shared/services/notification.service';
@@ -14,9 +14,9 @@ import { NotificationService } from '../../shared/services/notification.service'
 export class TotComponent implements OnInit {
   diplomaDetails: any = null;
   slug: string = '';
-  storageService = inject(StorageService)
+  storageService = inject(StorageService);
   sanitizer = inject(DomSanitizer);
-  settingsService = inject(SettingsService)
+  settingsService = inject(SettingsService);
   sanitizedShortDescription: SafeHtml | null = null;
   sanitizedLongDescription: SafeHtml | null = null;
 
@@ -29,28 +29,45 @@ export class TotComponent implements OnInit {
     image: null as File | null, // Single file
   };
 
-  coursesService = inject(CoursesService)
-  constructor(private route: ActivatedRoute, private http: HttpClient,     private notificationService: NotificationService,
-  ) {}
+  coursesService = inject(CoursesService);
+  constructor(
+    private route: ActivatedRoute,
+    private http: HttpClient,
+    private notificationService: NotificationService,
+    private title: Title,
+    private meta: Meta
+  ) { }
 
   ngOnInit(): void {
-
     this.checkUserLoginStatus();
     // Get the slug from the route
     this.slug = this.route.snapshot.paramMap.get('slug') || '';
+
+    // this.title.setTitle(
+    //   this.slug
+    //     .replace(/-/g, ' ')
+    //     .split(' ')
+    //     .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
+    //     .join(' '),
+    // );
 
     // Fetch diploma details using the slug
     this.getDiplomaDetails(this.slug);
   }
 
-
   getDiplomaDetails(slug: string): void {
     this.coursesService.fetchDiplomaDetails(slug).subscribe({
       next: (response) => {
+        this.diplomaDetails = response?.data;
 
-        this.diplomaDetails = response.data;
+        this.title.setTitle(this.diplomaDetails?.name);
+        this.meta.updateTag({
+          name: 'description',
+          content: this.diplomaDetails?.name,
+        });
+        // this.meta.updateTag({name:'keywords',content:this.diplomaDetails?.seo.keywords})
 
-        this.sanitizeDescription()
+        this.sanitizeDescription();
       },
       error: (error) => {
         console.error('Error fetching diploma details:', error);
@@ -87,51 +104,66 @@ export class TotComponent implements OnInit {
   }
 
   // Show Subscription Popup
-showSubscriptionPopup(): void {
-  this.isSubscriptionPopupVisible = true;
-}
-
-// Close Subscription Popup
-closeSubscriptionPopup(): void {
-  this.isSubscriptionPopupVisible = false;
-}
-
-handleFileSelection(event: Event): void {
-  const target = event.target as HTMLInputElement;
-  if (target.files && target.files.length > 0) {
-    this.subscriptionForm.image = target.files[0]; // Single file assignment
-  }
-}
-
-
-submitSubscriptionForm(): void {
-  if (!this.subscriptionForm.image) {
-    console.error('Image is required.');
-    return;
+  showSubscriptionPopup(): void {
+    this.isSubscriptionPopupVisible = true;
   }
 
-  if (!this.diplomaDetails?.id) {
-    console.error('Course ID is missing.');
-    return;
+  // Close Subscription Popup
+  closeSubscriptionPopup(): void {
+    this.isSubscriptionPopupVisible = false;
   }
 
-  const courseId = this.diplomaDetails.id; // Get courseId from diplomaDetails
-  this.settingsService
-    .subscribeToCourse(courseId, {
-      address: this.subscriptionForm.address,
-      image: this.subscriptionForm.image,
-    })
-    .subscribe({
-      next: (response) => {
-        this.notificationService.showSuccess('تم تسجيلك في الدبلوم بنجاح', 'سيتم التواصل معك في خلال 24 ساعة من الإدارة.')
-        this.closeSubscriptionPopup();
-      },
-      error: (error) => {
-        console.error('Subscription failed:', error);
-      },
+  handleFileSelection(event: Event): void {
+    const target = event.target as HTMLInputElement;
+    if (target.files && target.files.length > 0) {
+      this.subscriptionForm.image = target.files[0]; // Single file assignment
+    }
+  }
+
+  submitSubscriptionForm(): void {
+    if (!this.subscriptionForm?.image) {
+      console.error('Image is required.');
+      return;
+    }
+
+    if (!this.diplomaDetails?.id) {
+      console.error('Course ID is missing.');
+      return;
+    }
+
+    const courseId = this.diplomaDetails?.id; // Get courseId from diplomaDetails
+
+    this.sendGTMEvent(`diploma_${this.diplomaDetails.slug}`, {
+      address: this.subscriptionForm?.address,
+      image: this.subscriptionForm?.image,
+      price: this.diplomaDetails.price,
+      name: this.diplomaDetails.name,
+      slug: this.diplomaDetails.slug
     });
-}
 
+    this.settingsService
+      .subscribeToCourse(courseId, {
+        address: this.subscriptionForm?.address,
+        image: this.subscriptionForm?.image,
+      })
+      .subscribe({
+        next: (response) => {
+          this.notificationService.showSuccess(
+            'تم تسجيلك في الدبلوم بنجاح',
+            'سيتم التواصل معك في خلال 24 ساعة من الإدارة.'
+          );
+          this.closeSubscriptionPopup();
+        },
+        error: (error) => {
+          console.error('Subscription failed:', error);
+        },
+      });
+  }
 
-
+  sendGTMEvent(
+    event: string = `diploma_${this.diplomaDetails.slug}`,
+    payload: any
+  ) {
+    window.dataLayer.push({ event, payload });
+  }
 }

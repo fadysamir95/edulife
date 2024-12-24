@@ -3,12 +3,23 @@
 <div class="container">
   <div *ngIf="article" class="article-details-container py-4">
     <div class="image-container">
-      <img [src]="article.file" [alt]="article.name" class="img-fluid article-image">
+      <img
+        [src]="article.file"
+        [alt]="article.name || 'Article Image'"
+        class="img-fluid article-image"
+        (click)="onImageClick(article.name)"
+      />
     </div>
     <div class="content">
       <h1>{{ article.name }}</h1>
-      <div class="short-description" [innerHTML]="article.short_description"></div>
-      <div class="long-description" [innerHTML]="article.long_description"></div>
+      <div
+        class="short-description"
+        [innerHTML]="article.short_description"
+      ></div>
+      <div
+        class="long-description"
+        [innerHTML]="article.long_description"
+      ></div>
     </div>
   </div>
 </div>

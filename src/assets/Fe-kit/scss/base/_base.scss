@@ -1,195 +1,210 @@
 // EN Font
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap");
 
 // AR Font
-@import url('https://fonts.googleapis.com/css2?family=Cairo:wght@200..1000&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Cairo:wght@200..1000&display=swap");
 html {
-    font-size: 18px;
-    @media (max-width: 768px) {
-        font-size: 14px;
-    }
+  font-size: 18px;
+  @media (max-width: 768px) {
+    font-size: 14px;
+  }
 }
-html, body {
-    overflow-x: hidden;
-    // font-family: "Montserrat", sans-serif;
-    font-family: "Cairo", sans-serif;
-    min-height: 100%;
+html,
+body {
+  overflow-x: hidden;
+  // font-family: "Montserrat", sans-serif;
+  font-family: "Cairo", sans-serif;
+  min-height: 100%;
 }
 .container {
-    @media(min-width: 1400px) {
-        max-width: 85% !important;
-    }
+  @media (min-width: 1400px) {
+    max-width: 85% !important;
+  }
 }
 a {
-    text-decoration: none;
+  text-decoration: none;
 }
-p, h1, h2, h3, h4, h5, h6 {
-    margin-bottom: 0;
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin-bottom: 0;
 }
 ul {
-    list-style: none;
+  list-style: none;
 }
 .top-spacing {
-    margin-top: 2.5rem;
+  margin-top: 2.5rem;
 }
 .bottom-spacing {
-    margin-bottom: 2.5rem;
+  margin-bottom: 2.5rem;
 }
 .h-100 {
-    height: 100% !important;
+  height: 100% !important;
 }
 .text-white {
-    color: $white !important;
+  color: $white !important;
 }
 .object-fit-cover {
-    object-fit: cover;
+  object-fit: cover;
 }
 .lg-title {
-    font-size: 3rem;
-    font-weight: 600;
-    line-height: 3.5rem;
-    letter-spacing: 0.02rem;
+  font-size: 3rem;
+  font-weight: 600;
+  line-height: 3.5rem;
+  letter-spacing: 0.02rem;
 }
 .md-title {
-    font-size: 2rem;
-    line-height: 2.5rem;
-    letter-spacing: 0.02rem;
-    font-weight: 500;
+  font-size: 2rem;
+  line-height: 2.5rem;
+  letter-spacing: 0.02rem;
+  font-weight: 500;
 }
 .side-title {
-    font-size: 1.8rem;
-    font-weight: 700;
-    line-height: 2rem;
-    letter-spacing: 0.02em;
-    @media(max-width: 768px) {
-        text-align: center;
-        font-size: 1.4rem;
-    }
+  font-size: 1.8rem;
+  font-weight: 700;
+  line-height: 2rem;
+  letter-spacing: 0.02em;
+  @media (max-width: 768px) {
+    text-align: center;
+    font-size: 1.4rem;
+  }
 }
 .faint-title {
-    color: #bbbbbb;
-    font-size: 0.9rem;
-    font-weight: 500;
-    line-height: 2rem;
-    letter-spacing: 0.02em;
-    @media(max-width: 768px) {
-        text-align: center;
-    }
+  color: #bbbbbb;
+  font-size: 0.9rem;
+  font-weight: 500;
+  line-height: 2rem;
+  letter-spacing: 0.02em;
+  @media (max-width: 768px) {
+    text-align: center;
+  }
 }
 .title-before {
-    font-size: 1.1rem;
-    color: $secondary;
-    font-weight: 700;
-    position: relative;
-    margin-right: 4rem;
-    @media(max-width: 768px) {
-        display: none;
-    }
-    &::before {
-        content: '';
-        position: absolute;
-        right: -4rem;
-        top: 50%;
-        width: 3rem;
-        height: 2px;
-        background-color: $secondary;
-        transform: translateY(-50%);
-    }
+  font-size: 1.1rem;
+  color: $secondary;
+  font-weight: 700;
+  position: relative;
+  margin-right: 4rem;
+  @media (max-width: 768px) {
+    display: none;
+  }
+  &::before {
+    content: "";
+    position: absolute;
+    right: -4rem;
+    top: 50%;
+    width: 3rem;
+    height: 2px;
+    background-color: $secondary;
+    transform: translateY(-50%);
+  }
 }
 .subtitle {
-    font-size: 1.2rem;
-    font-weight: 700;
-    line-height: 1.3rem;
-    letter-spacing: 0.02em;
-    color: $primary;
-    @media(max-width: 768px) {
-        text-align: center;
-    }
+  font-size: 1.2rem;
+  font-weight: 700;
+  line-height: 1.3rem;
+  letter-spacing: 0.02em;
+  color: $primary;
+  @media (max-width: 768px) {
+    text-align: center;
+  }
 }
 .text-default {
-    font-size: 1.1rem;
-    font-weight: 500;
-    line-height: 2.3rem;
-    letter-spacing: 0.02em;
-    @media(max-width: 768px) {
-        text-align: center;
-    }
+  font-size: 1.1rem;
+  font-weight: 500;
+  line-height: 2.3rem;
+  letter-spacing: 0.02em;
+  @media (max-width: 768px) {
+    text-align: center;
+  }
 }
 .anchor-default {
-    font-size: 0.8rem;
-    font-weight: 500;
-    line-height: 0.9rem;
-    letter-spacing: 0.02em;
-    text-decoration: underline;
-    color: #689CFD;
-    &:hover, &:active, &:focus {
-        color: $secondary;
-    }
+  font-size: 0.8rem;
+  font-weight: 500;
+  line-height: 0.9rem;
+  letter-spacing: 0.02em;
+  text-decoration: underline;
+  color: #689cfd;
+  &:hover,
+  &:active,
+  &:focus {
+    color: $secondary;
+  }
 }
 .color-primary {
-    color: $primary;
+  color: $primary;
 }
 .color-secondary {
-    color: $secondary;
+  color: $secondary;
 }
 .link {
-    color: $gray;
-    cursor: pointer;
-    &:hover, &:active, &:focus {
-        color: $secondary;
-    }
+  color: $gray;
+  cursor: pointer;
+  &:hover,
+  &:active,
+  &:focus {
+    color: $secondary;
+  }
 }
 .sm-default-link {
-    color: $l-blue;
-    font-size: 0.8rem;
-    font-weight: 500;
-    cursor: pointer;
-    &:hover, &:active, &:focus {
-        color: $secondary;
-    }
-    @media(max-width: 768px) {
-        width: 100%;
-        text-align: center;
-        display: block;
-        margin-top: 1.5rem;
-        font-size: 1rem;
-    }
+  color: $l-blue;
+  font-size: 0.8rem;
+  font-weight: 500;
+  cursor: pointer;
+  &:hover,
+  &:active,
+  &:focus {
+    color: $secondary;
+  }
+  @media (max-width: 768px) {
+    width: 100%;
+    text-align: center;
+    display: block;
+    margin-top: 1.5rem;
+    font-size: 1rem;
+  }
 }
 .md-default-link {
-    color: $secondary;
-    font-size: 1.2rem;
-    font-weight: 500;
-    cursor: pointer;
-    &:hover, &:active, &:focus {
-        color: $primary;
-    }
-    @media(max-width: 768px) {
-        width: 100%;
-        text-align: center;
-        display: block;
-        margin-top: 1.5rem;
-        font-size: 1rem;
-    }
+  color: $secondary;
+  font-size: 1.2rem;
+  font-weight: 500;
+  cursor: pointer;
+  &:hover,
+  &:active,
+  &:focus {
+    color: $primary;
+  }
+  @media (max-width: 768px) {
+    width: 100%;
+    text-align: center;
+    display: block;
+    margin-top: 1.5rem;
+    font-size: 1rem;
+  }
 }
 .form-control {
-    &:focus {
-        border-color: $secondary;
-    }
+  &:focus {
+    border-color: $secondary;
+  }
 }
 .secondary-color {
-    color: $secondary;
+  color: $secondary;
 }
 .w-60 {
-    width: 60%;
-    @media(max-width:768px) {
-        width: 100%;
-    }
+  width: 60%;
+  @media (max-width: 768px) {
+    width: 100%;
+  }
 }
 .diplomas .owl-carousel .owl-stage {
-    display: flex !important;
-    align-items: flex-end !important;
-    justify-content: center !important;
+  display: flex !important;
+  align-items: flex-end !important;
+  justify-content: center !important;
 }
 .article-image {
-    max-width: 10rem;
+  max-width: 10rem;
 }

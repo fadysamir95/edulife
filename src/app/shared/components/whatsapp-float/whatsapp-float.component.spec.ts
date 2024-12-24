@@ -8,10 +8,9 @@ describe('WhatsappFloatComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [WhatsappFloatComponent]
-    })
-    .compileComponents();
-    
+      declarations: [WhatsappFloatComponent],
+    }).compileComponents();
+
     fixture = TestBed.createComponent(WhatsappFloatComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();

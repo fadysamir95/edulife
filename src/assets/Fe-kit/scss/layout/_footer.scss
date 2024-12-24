@@ -1,97 +1,94 @@
 footer {
-    background-color: $off-white;
+  background-color: $off-white;
 
-    .partners {
-        background-color: $light-gray;
+  .partners {
+    background-color: $light-gray;
 
-        .partner-logo {
-            .partner {
-                @media(max-width: 768px) {
-                    justify-content: center;
-                    margin-bottom: 2rem;
-                }
-
-                img {
-                    max-width: 70%;
-
-                    @media(max-width: 768px) {
-                        max-width: 70%;
-                    }
-                }
-            }
-
-            &:last-child {
-                .partner {
-                    @media(max-width: 768px) {
-                        margin-bottom: 0;
-                    }
-                }
-            }
+    .partner-logo {
+      .partner {
+        @media (max-width: 768px) {
+          justify-content: center;
+          margin-bottom: 2rem;
         }
-
-    }
-
-    p {
-        font-size: 0.8rem;
-        color: $black;
-        font-weight: 400;
-        max-width: 90%;
-    }
-
-    .nav-item {
-        a {
-            font-size: 0.8rem;
-            color: $black !important;
-            font-weight: 400;
-
-            &:hover,
-            &:active,
-            &:focus {
-                color: $secondary !important;
-            }
-        }
-
-        span {
-            font-size: 0.8rem;
-            color: $black !important;
-            font-weight: 400;
-        }
-    }
-
-    .footer-logo {
-        max-width: 24%;
-    }
-
-    .social-icons {
-        display: flex;
-        justify-content: flex-end;
-        gap: 10px;
 
         img {
-            width: 1rem;
+          max-width: 70%;
+
+          @media (max-width: 768px) {
+            max-width: 70%;
+          }
         }
+      }
+
+      &:last-child {
+        .partner {
+          @media (max-width: 768px) {
+            margin-bottom: 0;
+          }
+        }
+      }
+    }
+  }
+
+  p {
+    font-size: 0.8rem;
+    color: $black;
+    font-weight: 400;
+    max-width: 90%;
+  }
+
+  .nav-item {
+    a {
+      font-size: 0.8rem;
+      color: $black !important;
+      font-weight: 400;
+
+      &:hover,
+      &:active,
+      &:focus {
+        color: $secondary !important;
+      }
     }
 
-    .social-icons a {
-        background: #ffffff none repeat scroll 100% 0;
-        color: #2d3e50;
-        display: inline-block;
-        font-size: 2rem;
-        height: 40px;
-        line-height: 30px;
-        margin-left: 11px;
-        text-align: center;
-        -webkit-transition: all 0.3s ease 0s;
-        transition: all 0.3s ease 0s;
-        width: 50px;
-
+    span {
+      font-size: 0.8rem;
+      color: $black !important;
+      font-weight: 400;
     }
+  }
 
-    .social-icons a:hover {
-        color: #007bff;
-        /* Optional hover effect */
-        background-color: #f0f0f0;
-        /* Optional hover background */
+  .footer-logo {
+    max-width: 24%;
+  }
+
+  .social-icons {
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+
+    img {
+      width: 1rem;
     }
+  }
 
+  .social-icons a {
+    background: #ffffff none repeat scroll 100% 0;
+    color: #2d3e50;
+    display: inline-block;
+    font-size: 2rem;
+    height: 40px;
+    line-height: 30px;
+    margin-left: 11px;
+    text-align: center;
+    -webkit-transition: all 0.3s ease 0s;
+    transition: all 0.3s ease 0s;
+    width: 50px;
+  }
+
+  .social-icons a:hover {
+    color: #007bff;
+    /* Optional hover effect */
+    background-color: #f0f0f0;
+    /* Optional hover background */
+  }
 }

@@ -1,26 +1,26 @@
 .inner-banner {
-    padding-top: 3rem;
-    padding-bottom: 3rem;
-    background-color: $off-white;
-    h1 {
-        position: relative;
-        font-size: 7rem;
-        font-weight: 800;
-        color: $primary;
-        z-index: 2;
-        @media(max-width: 768px) {
-            font-size: 4rem;
-            text-align: center;
-            margin-top: 1rem;
-        }
+  padding-top: 3rem;
+  padding-bottom: 3rem;
+  background-color: $off-white;
+  h1 {
+    position: relative;
+    font-size: 7rem;
+    font-weight: 800;
+    color: $primary;
+    z-index: 2;
+    @media (max-width: 768px) {
+      font-size: 4rem;
+      text-align: center;
+      margin-top: 1rem;
     }
-    &.tot {
-        padding-bottom: 5rem;
-        .btn {
-            @media(max-width: 768px) {
-                display: flex;
-                justify-content: center;
-            }
-        }
+  }
+  &.tot {
+    padding-bottom: 5rem;
+    .btn {
+      @media (max-width: 768px) {
+        display: flex;
+        justify-content: center;
+      }
     }
+  }
 }

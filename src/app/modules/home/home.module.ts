@@ -14,7 +14,11 @@ const routes: Routes = [
 
 @NgModule({
   declarations: [HomeComponent],
-  imports: [CommonModule, RouterModule.forChild(routes), CarouselModule,
-    SharedModule],
+  imports: [
+    CommonModule,
+    RouterModule.forChild(routes),
+    CarouselModule,
+    SharedModule,
+  ],
 })
-export class HomeModule { }
+export class HomeModule {}

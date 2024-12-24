@@ -9,8 +9,7 @@ import { catchError, Observable, throwError } from 'rxjs';
 export class CoursesService {
   private baseUrl = environment.baseUrl;
 
-  constructor(private http: HttpClient) { }
-
+  constructor(private http: HttpClient) {}
 
   getAllCourses(lang: string = 'ar'): Observable<{ data: any[] }> {
     const url = `${this.baseUrl}get_cates_diplomas?lang=${lang}`;
@@ -18,7 +17,7 @@ export class CoursesService {
       catchError((error) => {
         console.error('Error fetching best sellers:', error);
         throw error;
-      })
+      }),
     );
   }
 
@@ -28,20 +27,23 @@ export class CoursesService {
       catchError((error) => {
         console.error(`Error fetching courses for category ${id}:`, error);
         throw error;
-      })
+      }),
     );
   }
 
-  fetchDiplomaDetails(slug: string, lang: string = 'ar'): Observable<{ data: any }> {
+  fetchDiplomaDetails(
+    slug: string,
+    lang: string = 'ar',
+  ): Observable<{ data: any }> {
     const url = `${this.baseUrl}get_diplomas_details_by_slug/${slug}?lang=${lang}`;
     return this.http.get<{ data: any }>(url).pipe(
       catchError((error) => {
-        console.error(`Error fetching diploma details for slug ${slug}:`, error);
+        console.error(
+          `Error fetching diploma details for slug ${slug}:`,
+          error,
+        );
         return throwError(() => error);
-      })
+      }),
     );
   }
-  
-  
-
 }

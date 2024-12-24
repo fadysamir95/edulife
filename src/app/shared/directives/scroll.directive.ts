@@ -1,7 +1,7 @@
 import { Directive, ElementRef, HostListener } from '@angular/core';
 
 @Directive({
-  selector: '[appScroll]'
+  selector: '[appScroll]',
 })
 export class ScrollDirective {
   constructor(private elementRef: ElementRef) {}

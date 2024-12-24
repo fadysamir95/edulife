@@ -1,53 +1,53 @@
 .highlights {
-    h2 {
-        color: #193148;
-        font-size: 6rem;
+  h2 {
+    color: #193148;
+    font-size: 6rem;
 
-        @media(max-width: 768px) {
-            font-size: 3rem;
-        }
+    @media (max-width: 768px) {
+      font-size: 3rem;
     }
+  }
 
-    h3 {
-        color: #E4B039;
-        font-size: 6rem;
+  h3 {
+    color: #e4b039;
+    font-size: 6rem;
 
-        @media(max-width: 768px) {
-            font-size: 3rem;
-        }
+    @media (max-width: 768px) {
+      font-size: 3rem;
     }
+  }
 }
 
 .features {
-    img {
-        max-width: 200px;
-    }
+  img {
+    max-width: 200px;
+  }
 
-    h2 {
-        font-weight: 600;
-        color: #193148;
-    }
+  h2 {
+    font-weight: 600;
+    color: #193148;
+  }
 
-    .text-left {
-        text-align: left;
-    }
+  .text-left {
+    text-align: left;
+  }
 
-    .item {
-        margin-bottom: 8rem;
+  .item {
+    margin-bottom: 8rem;
 
-        @media(max-width: 768px) {
-            margin-bottom: 4rem;
-        }
+    @media (max-width: 768px) {
+      margin-bottom: 4rem;
     }
+  }
 
-    .d-xs-none {
-        @media(max-width: 768px) {
-            display: none;
-        }
+  .d-xs-none {
+    @media (max-width: 768px) {
+      display: none;
     }
+  }
 }
 
 .paragraph-title {
-    font-size: 2rem;
-    font-weight: bold;
+  font-size: 2rem;
+  font-weight: bold;
 }
