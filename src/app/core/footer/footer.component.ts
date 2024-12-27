@@ -11,6 +11,7 @@ export class FooterComponent implements OnInit {
   settingsService = inject(SettingsService);
   gtmService = inject(GTMService)
 
+
   customOptions: OwlOptions = {
     loop: false,
     mouseDrag: true,
@@ -18,7 +19,7 @@ export class FooterComponent implements OnInit {
     pullDrag: true,
     dots: false,
     navSpeed: 700,
-    margin: 50, // Increase the gap between items
+    margin: 50,
     navText: ['', ''],
     rtl: true,
     autoplay: true,
@@ -26,24 +27,23 @@ export class FooterComponent implements OnInit {
     autoplayHoverPause: true,
     responsive: {
       0: {
-        items: 5, // Always show 5 items
+        items: 1
       },
       400: {
-        items: 5, // Always show 5 items
+        items: 2
       },
       740: {
-        items: 5, // Always show 5 items
+        items: 4
       },
       940: {
-        items: 5, // Always show 5 items
+        items: 6
       },
       1110: {
-        items: 5, // Always show 5 items
-      },
+        items: 8
+      }
     },
-    nav: false,
-  };
-
+    nav: false
+  }
   settingsInfo: any;
 
   ngOnInit(): void {

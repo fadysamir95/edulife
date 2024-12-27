@@ -78,10 +78,16 @@ export class DiplomasComponent implements OnInit {
     });
   }
 
-  // Track course click
-  onCourseClick(course: any): void {
+
+
+  // Handle course selection
+  onCourseSelect(course: any): void {
+    this.fetchCourseDetails(course.id); // Fetch details of the clicked course
     this.gtmService.sendGTMEvent('course_select', { courseName: course.name });
+
   }
+
+
 
   // Track sub-course click
   onSubCourseClick(subCourse: any): void {

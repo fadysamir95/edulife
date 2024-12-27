@@ -18,7 +18,7 @@ export class ErrorInterceptor implements HttpInterceptor {
     private notificationService: NotificationService,
     private spinnerService: SpinnerService,
     private storageService: StorageService,
-  ) {}
+  ) { }
 
   intercept(
     req: HttpRequest<any>,
@@ -36,6 +36,7 @@ export class ErrorInterceptor implements HttpInterceptor {
       clonedRequest = req.clone({
         setHeaders: {
           Authorization: `Bearer ${token}`,
+          'Access-Control-Allow-Origin': '*',
         },
       });
     }

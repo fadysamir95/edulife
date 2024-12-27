@@ -10,12 +10,8 @@
   <div class="diplomas carousel-area py-5">
     <owl-carousel-o [options]="customOptions">
       <ng-template carouselSlide *ngFor="let course of courses">
-        <a
-          class="text-center"
-          [routerLink]="['/course', course.slug]"
-          (click)="onCourseClick(course)"
-        >
-          <img [src]="course.file" [alt]="course.name || 'Course Image'" />
+        <a class="text-center" (click)="onCourseSelect(course)">
+          <img [src]="course.file" [alt]="course.name" />
           <p class="mt-3">{{ course.name }}</p>
         </a>
       </ng-template>

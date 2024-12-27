@@ -11,7 +11,7 @@ import { NotificationService } from '../../shared/services/notification.service'
   selector: 'app-tot',
   templateUrl: './tot.component.html',
 })
-export class TotComponent implements OnInit {
+export class TotComponent {
   diplomaDetails: any = null;
   slug: string = '';
   storageService = inject(StorageService);
@@ -30,28 +30,16 @@ export class TotComponent implements OnInit {
   };
 
   coursesService = inject(CoursesService);
+
   constructor(
     private route: ActivatedRoute,
     private http: HttpClient,
     private notificationService: NotificationService,
     private title: Title,
     private meta: Meta
-  ) { }
-
-  ngOnInit(): void {
+  ) {
     this.checkUserLoginStatus();
-    // Get the slug from the route
     this.slug = this.route.snapshot.paramMap.get('slug') || '';
-
-    // this.title.setTitle(
-    //   this.slug
-    //     .replace(/-/g, ' ')
-    //     .split(' ')
-    //     .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
-    //     .join(' '),
-    // );
-
-    // Fetch diploma details using the slug
     this.getDiplomaDetails(this.slug);
   }
 
@@ -60,12 +48,11 @@ export class TotComponent implements OnInit {
       next: (response) => {
         this.diplomaDetails = response?.data;
 
+        // Update the title tag
         this.title.setTitle(this.diplomaDetails?.name);
-        this.meta.updateTag({
-          name: 'description',
-          content: this.diplomaDetails?.name,
-        });
-        // this.meta.updateTag({name:'keywords',content:this.diplomaDetails?.seo.keywords})
+
+        // Inject meta tags from the 'codes' field
+        this.injectMetaTags(this.diplomaDetails?.codes);
 
         this.sanitizeDescription();
       },
@@ -73,6 +60,30 @@ export class TotComponent implements OnInit {
         console.error('Error fetching diploma details:', error);
       },
     });
+  }
+
+  injectMetaTags(codes: string): void {
+    if (!codes) {
+      console.error('No meta tags provided in codes.');
+      return;
+    }
+
+    // Regex to match meta tags with 'name' or 'property' attributes
+    const metaTagRegex = /<meta\s+(name|property)=["']([^"']+)["']\s+content=["']([^"']+)["']\s*\/?>/gi;
+    let match: RegExpExecArray | null;
+
+    while ((match = metaTagRegex.exec(codes)) !== null) {
+      const attributeType = match[1]; // Either "name" or "property"
+      const attributeValue = match[2]; // Value of name/property
+      const content = match[3]; // Content of the meta tag
+
+      // Add or update the meta tag
+      if (attributeType === 'name') {
+        this.meta.updateTag({ name: attributeValue, content });
+      } else if (attributeType === 'property') {
+        this.meta.updateTag({ property: attributeValue, content });
+      }
+    }
   }
 
   sanitizeDescription(): void {
@@ -138,7 +149,7 @@ export class TotComponent implements OnInit {
       image: this.subscriptionForm?.image,
       price: this.diplomaDetails.price,
       name: this.diplomaDetails.name,
-      slug: this.diplomaDetails.slug
+      slug: this.diplomaDetails.slug,
     });
 
     this.settingsService

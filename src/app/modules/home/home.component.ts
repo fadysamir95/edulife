@@ -87,7 +87,7 @@ export class HomeComponent implements OnInit {
       name: seller.name,
       slug: seller.slug,
     });
-    this.router.navigate(['/tot', seller.slug]);
+    this.router.navigate(['/diplomas', seller.slug]);
   }
 
   // // New: Fetch Instagram feeds
