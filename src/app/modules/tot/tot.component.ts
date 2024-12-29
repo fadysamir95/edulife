@@ -47,9 +47,6 @@ export class TotComponent {
     this.coursesService.fetchDiplomaDetails(slug).subscribe({
       next: (response) => {
         this.diplomaDetails = response?.data;
-
-        console.log(this.diplomaDetails);
-
         // Update the title tag
         this.title.setTitle(this.diplomaDetails?.name);
 

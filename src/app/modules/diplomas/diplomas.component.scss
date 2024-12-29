@@ -35,7 +35,7 @@
     img {
       width: auto;
       margin: auto;
-      max-width: 6.5rem;
+      max-width: 4.5rem;
       cursor: pointer;
     }
 
@@ -64,4 +64,14 @@
 
 a {
   color: #193148;
+}
+
+.graduation-identify-container {
+  h2 {
+    color: #193148;
+    font-weight: bold;
+  }
+  i {
+    color: #e4b039;
+  }
 }

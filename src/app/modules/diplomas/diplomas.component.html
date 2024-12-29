@@ -7,7 +7,13 @@
 </section>
 
 <div class="container">
-  <div class="diplomas carousel-area py-5">
+  <div class="text-center mb-4 graduation-identify-container">
+    <h2 class="mt-5">اختر من بين هذة التخصصات</h2>
+    <i class="fa fa-graduation-cap fa-3x mt-3"></i>
+  </div>
+
+  <!-- Carousel Section -->
+  <div class="diplomas carousel-area">
     <owl-carousel-o [options]="customOptions">
       <ng-template carouselSlide *ngFor="let course of courses">
         <a class="text-center" (click)="onCourseSelect(course)">
@@ -21,49 +27,61 @@
 
 <section class="join top-spacing mb-5 pb-5" *ngIf="selectedCourseDetails">
   <div class="container">
-    <div class="row" *ngFor="let subCourse of selectedCourseDetails">
-      <div class="col-md-3">
-        <div class="position-relative images-area">
-          <a
-            [routerLink]="['/diplomas', subCourse.slug]"
-            (click)="onSubCourseClick(subCourse)"
-          >
-            <img
-              [src]="subCourse.file"
-              [alt]="subCourse.name || 'Sub-Course Image'"
-              class="main-img img-fluid"
-            />
-          </a>
+    <!-- Check if there are courses -->
+    <div *ngIf="selectedCourseDetails.length > 0; else noCourses">
+      <div class="row" *ngFor="let subCourse of selectedCourseDetails">
+        <div class="col-md-3">
+          <div class="position-relative images-area">
+            <a
+              [routerLink]="['/diplomas', subCourse.slug]"
+              (click)="onSubCourseClick(subCourse)"
+            >
+              <img
+                [src]="subCourse.file"
+                [alt]="subCourse.name || 'Sub-Course Image'"
+                class="main-img img-fluid"
+              />
+            </a>
+          </div>
         </div>
-      </div>
-      <div class="col-md-9">
-        <div class="content">
-          <h4 class="text-uppercase mb-3 mt-lg-3">
-            <a
-              [routerLink]="['/diplomas', subCourse.slug]"
-              (click)="onSubCourseClick(subCourse)"
+        <div class="col-md-9">
+          <div class="content">
+            <h4 class="text-uppercase mb-3 mt-lg-3">
+              <a
+                [routerLink]="['/diplomas', subCourse.slug]"
+                (click)="onSubCourseClick(subCourse)"
+              >
+                {{ subCourse.name }}
+              </a>
+            </h4>
+            <div
+              class="text-default"
+              [innerHTML]="subCourse.short_description"
+            ></div>
+            <div
+              class="d-flex justify-content-between align-items-center mt-4 flex-wrap"
             >
-              {{ subCourse.name }}
-            </a>
-          </h4>
-          <div
-            class="text-default"
-            [innerHTML]="subCourse.short_description"
-          ></div>
-          <div
-            class="d-flex justify-content-between align-items-center mt-4 flex-wrap"
-          >
-            <a
-              class="btn main-btn"
-              [routerLink]="['/diplomas', subCourse.slug]"
-              (click)="onSubCourseClick(subCourse)"
-            >
-              لمعرفة المزيد
-            </a>
+              <a
+                class="btn main-btn"
+                [routerLink]="['/diplomas', subCourse.slug]"
+                (click)="onSubCourseClick(subCourse)"
+              >
+                لمعرفة المزيد
+              </a>
+            </div>
           </div>
         </div>
       </div>
     </div>
+
+    <!-- Template to display when no courses are available -->
+    <ng-template #noCourses>
+      <div class="row">
+        <div class="col text-center">
+          <h4 class="text-warning mt-5">يتم تجهيز الكورس وغير متاح الآن</h4>
+        </div>
+      </div>
+    </ng-template>
   </div>
 </section>
 
