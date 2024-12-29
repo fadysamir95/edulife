@@ -48,11 +48,14 @@ export class TotComponent {
       next: (response) => {
         this.diplomaDetails = response?.data;
 
+        console.log(this.diplomaDetails);
+
         // Update the title tag
         this.title.setTitle(this.diplomaDetails?.name);
 
         // Inject meta tags from the 'codes' field
-        this.injectMetaTags(this.diplomaDetails?.codes);
+        if (this.diplomaDetails?.codes?.length)
+          this.injectMetaTags(this.diplomaDetails?.codes);
 
         this.sanitizeDescription();
       },
@@ -63,26 +66,21 @@ export class TotComponent {
   }
 
   injectMetaTags(codes: string): void {
-    if (!codes) {
-      console.error('No meta tags provided in codes.');
-      return;
-    }
+    const metaTags = codes.match(/<meta [^>]+>/g);
 
-    // Regex to match meta tags with 'name' or 'property' attributes
-    const metaTagRegex = /<meta\s+(name|property)=["']([^"']+)["']\s+content=["']([^"']+)["']\s*\/?>/gi;
-    let match: RegExpExecArray | null;
+    if (metaTags) {
+      metaTags.forEach((tag) => {
+        const nameMatch = tag.match(/name="([^"]+)"/);
+        const contentMatch = tag.match(/content="([^"]+)"/);
 
-    while ((match = metaTagRegex.exec(codes)) !== null) {
-      const attributeType = match[1]; // Either "name" or "property"
-      const attributeValue = match[2]; // Value of name/property
-      const content = match[3]; // Content of the meta tag
+        if (nameMatch && contentMatch) {
+          const name = nameMatch[1];
+          const content = contentMatch[1];
 
-      // Add or update the meta tag
-      if (attributeType === 'name') {
-        this.meta.updateTag({ name: attributeValue, content });
-      } else if (attributeType === 'property') {
-        this.meta.updateTag({ property: attributeValue, content });
-      }
+          // Dynamically add meta tags
+          this.meta.addTag({ name, content });
+        }
+      });
     }
   }
 
