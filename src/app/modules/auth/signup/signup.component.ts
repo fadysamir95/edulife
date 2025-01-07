@@ -31,10 +31,10 @@ export class SignupComponent implements OnInit {
   signupForm: FormGroup = this.fb.group({
     name: ['', [Validators.required]],
     email: ['', [Validators.required, Validators.email]],
-    phone: ['', [Validators.required, Validators.minLength(10)]],
+    phone: ['', [Validators.required, Validators.minLength(8)]],
     password: ['', [Validators.required, Validators.minLength(8)]],
-    country_id: [null, [Validators.required]], // Required for country selection
-    city_id: [null, [Validators.required]], // Required for city selection
+    country_id: ['', [Validators.required]], // Required for country selection
+    city_id: ['', [Validators.required]], // Required for city selection
   });
 
   countries: { id: number; name: string }[] = [];
