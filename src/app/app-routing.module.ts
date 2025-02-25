@@ -36,6 +36,12 @@ const routes: Routes = [
       import('./modules/about/about.module').then((m) => m.AboutModule),
     title: 'About US',
   },
+  {
+    path: 'new',
+    loadChildren: () =>
+      import('./modules/new/new.module').then((m) => m.NewModule),
+    title: 'New',
+  },
 ];
 
 @NgModule({
