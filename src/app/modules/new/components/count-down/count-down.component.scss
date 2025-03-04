@@ -1,0 +1,182 @@
+$color_1: white;
+$color_2: #333;
+$color_3: #666;
+$background-color_1: #f8f9fa;
+$background-color_2: #ff6b00;
+$background-color_3: #f0f0f0;
+$background-color_4: #183149;
+$background-color_5: #080e18;
+
+.special-offer-container {
+ display: flex;
+ align-items: center;
+ background-color: $background-color_1;
+ border-radius: 10px;
+ padding: 15px;
+ max-width: 100%;
+ margin: 0 auto;
+ direction: rtl;
+ transition: all .3sease;
+ padding-top: 2rem;
+ justify-content: center;
+ padding-bottom: 2rem;
+ flex-wrap: wrap;
+
+ &.sticky {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  margin: 0;
+  width: 100%;
+  border-radius: 0;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+ }
+}
+
+.offer-details {
+ display: flex;
+ align-items: center;
+ margin-left: 20px;
+}
+
+.offer-badge {
+ background-color: $background-color_2;
+ color: $color_1;
+ border-radius: 10px;
+ padding: 10px;
+ display: flex;
+ flex-direction: column;
+ align-items: center;
+ margin-left: 15px;
+
+ span {
+  &:first-child {
+   font-size: 1.5rem;
+   font-weight: bold;
+  }
+
+  &:last-child {
+   font-size: 0.8rem;
+  }
+ }
+}
+
+.offer-text {
+ display: flex;
+ flex-direction: column;
+ align-items: flex-end;
+
+ span {
+  &:first-child {
+   font-size: 1.2rem;
+   font-weight: bold;
+   color: $color_2;
+  }
+
+  &:last-child {
+   font-size: 0.9rem;
+   color: $color_3;
+  }
+ }
+}
+
+.countdown-section {
+ display: flex;
+ align-items: center;
+ margin-left: 20px;
+}
+
+.countdown-item {
+ display: flex;
+ flex-direction: column;
+ align-items: center;
+ margin: 0 10px;
+
+ .number {
+  background-color: $background-color_3;
+  padding: 10px 15px;
+  border-radius: 5px;
+  font-size: 1.5rem;
+  font-weight: bold;
+  min-width: 60px;
+  text-align: center;
+ }
+
+ .label {
+  margin-top: 5px;
+  font-size: 0.8rem;
+  color: $color_3;
+ }
+}
+
+.available-info {
+ display: flex;
+ align-items: center;
+ margin-left: 20px;
+}
+
+.info-item {
+ display: flex;
+ flex-direction: column;
+ align-items: center;
+ margin: 0 10px;
+
+ span {
+  &:first-child {
+   font-size: 1.2rem;
+   font-weight: bold;
+   color: $color_2;
+  }
+
+  &:last-child {
+   font-size: 0.8rem;
+   color: $color_3;
+  }
+ }
+}
+
+.reserve-button {
+ background-color: $background-color_4;
+ color: $color_1;
+ border: none;
+ padding: 12px 20px;
+ border-radius: 5px;
+ font-size: 1rem;
+ cursor: pointer;
+ transition: background-color 0.3s ease;
+
+ &:hover {
+  background-color: $background-color_5;
+ }
+}
+
+@media (max-width: 768px) {
+ .special-offer-container.sticky {
+  padding: 10px;
+
+  .countdown-item {
+   .number {
+    font-size: 1rem;
+    padding: 5px 10px;
+   }
+  }
+
+  .offer-badge {
+   display: none;
+  }
+
+  .reserve-button {
+   display: none;
+  }
+ }
+
+ .offer-details {
+  margin-bottom: 1rem;
+ }
+
+ .countdown-section {
+  margin-bottom: 1rem;
+ }
+}

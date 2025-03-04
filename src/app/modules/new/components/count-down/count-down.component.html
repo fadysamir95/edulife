@@ -1,0 +1,50 @@
+<div class="special-offer-container" [ngClass]="{'sticky': isSticky}">
+ <div class="offer-details">
+   <div class="offer-badge">
+     <span>%90</span>
+     <span>خصم</span>
+   </div>
+   <div class="offer-text">
+     <span>عرض خاص</span>
+     <span>ولفترة محدودة</span>
+   </div>
+ </div>
+ 
+ <div class="countdown-section">
+   <div class="countdown-item">
+     <span class="number">{{ days }}</span>
+     <span class="label">يوم</span>
+   </div>
+   <div class="countdown-item">
+     <span class="number">{{ hours }}</span>
+     <span class="label">ساعة</span>
+   </div>
+   <div class="countdown-item">
+     <span class="number">{{ minutes }}</span>
+     <span class="label">دقيقة</span>
+   </div>
+   <div class="countdown-item">
+     <span class="number">{{ seconds }}</span>
+     <span class="label">ثانية</span>
+   </div>
+ </div>
+ 
+ <div class="available-info">
+   <div class="info-item">
+     <span>11</span>
+     <span>المتاح</span>
+   </div>
+   <div class="info-item">
+     <span>29</span>
+     <span>المسجلين</span>
+   </div>
+   <div class="info-item">
+     <span>40</span>
+     <span>المقاعد</span>
+   </div>
+ </div>
+ 
+ <button class="reserve-button">
+   بادر بالحجز الآن →
+ </button>
+</div>
