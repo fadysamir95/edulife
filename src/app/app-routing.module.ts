@@ -37,7 +37,7 @@ const routes: Routes = [
     title: 'About US',
   },
   {
-    path: 'new',
+    path: 'landingPage',
     loadChildren: () =>
       import('./modules/new/new.module').then((m) => m.NewModule),
     title: 'New',
@@ -52,4 +52,4 @@ const routes: Routes = [
   ],
   exports: [RouterModule],
 })
-export class AppRoutingModule {}
+export class AppRoutingModule { }
